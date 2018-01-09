@@ -1,0 +1,38 @@
+.thumbnails{
+	list-style:none;
+	margin: 1em 0;
+	padding:0;
+	max-width: 1000px;
+	li{
+		display:inline-block;
+		margin: 0 5% 20px 0;
+		max-width: 40%;
+		@include breakpoint($above-stacked){
+			max-width: 25%;
+		}
+		a{
+			display:block;
+		}
+		h5{
+			margin-top: 0;
+		}
+	}
+}
+
+.team{
+	list-style:none;
+	margin: 1em 0;
+	padding:0;
+	@include clearfix();
+	li{
+
+	}
+	.frontendadmin_edit{
+		clear:both;
+		display:block !important;
+		text-align: center;
+		&:after{
+			content: " ^^";
+		}
+	}
+}

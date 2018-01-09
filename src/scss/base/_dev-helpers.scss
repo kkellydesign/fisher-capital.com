@@ -1,0 +1,20 @@
+// helpers – comment this out when you're done.
+.l-header{
+	position:relative;
+	&:before{
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-size: 9px;
+		opacity: 0.6;
+		content: "default stacked";
+		z-index: 9900;
+		color: #fff;
+		@include breakpoint($above-stacked){ content: "above-stacked";}
+		@include breakpoint($above-skinny){ content: "above-skinny";}
+		@include breakpoint($above-normal){ content: "above-normal";}
+		@include breakpoint($above-normal-plus){ content: "above-normal-plus";}
+		@include breakpoint($above-wide){ content: "above-wide";}
+		@include breakpoint($above-wide-plus){ content: "above-wide-plus";}
+	}
+}

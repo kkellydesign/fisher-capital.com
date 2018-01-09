@@ -1,0 +1,28 @@
+.post-img-wrap {
+  display: flex;
+  width: 100%;
+
+  .post-img-half {
+    position: relative;
+
+    h5 {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #fff;
+      text-shadow: 1px 1px 30px #4c362b, 1px 1px 10px #000;
+    }
+    &.after h5 {
+      right: auto;
+      left: 10px;
+    }
+  }
+}
+
+
+.post-preview-text {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}

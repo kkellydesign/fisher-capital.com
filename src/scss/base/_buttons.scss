@@ -1,0 +1,50 @@
+$button-bg-color: $primary-color;
+$button-color: #fff;
+$button-border: 0 none;
+$button-border-radius:  $border-radius;
+$button-hover-background: mix($shade, $button-bg-color, 30%);
+$button-padding: 10px 20px;
+$button-margin: 10px 0 0 0;
+$button-font-weight:300;
+
+$button-subdued-bg-color: $grey;
+$button-subdued-color: $text-color;
+$button-subdued-border: 1px solid $button-subdued-bg-color;
+$button-subdued-border-hover: 1px solid mix($shade, $button-subdued-bg-color, 15%);
+$button-subdued-hover-background: mix($shade, $button-subdued-bg-color, 15%);
+
+.btn,
+.button {
+  background-color: $button-bg-color;
+  color: $button-color;
+  border: $button-border;
+  border-radius: $button-border-radius;
+  padding: $button-padding;
+  margin: $button-margin;
+  font-weight: $button-font-weight;
+  font-family: $button-font-family;
+  @include font-size(2.4);
+  display:inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  &:hover{
+    background-color: $button-hover-background;
+    color: $button-color;
+    text-decoration: none;
+  }
+  &.subdued{
+    background-color: $button-subdued-bg-color;
+    color: $button-subdued-color;
+    border: $button-subdued-border;
+    &:hover{
+      background-color: $button-subdued-hover-background;
+      border: $button-subdued-border-hover;
+      color: $button-subdued-color;
+    }
+  }
+  &.block,
+  &.btn-block{
+    display:block;
+    text-align: center;
+  }
+}

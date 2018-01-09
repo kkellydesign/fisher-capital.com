@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head_title %} Message Sent {% endblock %}
+{% comment %}
+{% block masthead-image %}
+    background-image:url( {% static 'img/contact.jpg' %} );"
+{% endblock masthead-image %}
+{% endcomment %}
+
+{% block content %}
+<div class="l-main l-container">
+<h1>{% page "title" type="text" %}</h1>
+          {% page "content" type="wysiwyg" %}
+</div>
+{% endblock content %}

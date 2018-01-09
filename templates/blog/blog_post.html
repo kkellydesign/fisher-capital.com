@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="post-img-wrap">
+  <div class="post-img-half">
+
+    {% page "before" type="img" %}
+    {% if page.content.before or editing %}
+    <img
+      src="{% if page.content.before %}{% imgix_url page.content.before %}{% elif editing %}https://placem.at/places{% endif %}?w=500&h=300&fit=crop"
+      data-srv-name="before"
+    />
+    {% endif %}
+    <h5>Before</h5>
+  </div>
+  <div class="post-img-half after">
+    {% page "main" type="img" %}
+    {% if page.content.main or editing %}
+    <img
+      src="{% if page.content.main %}{% imgix_url page.content.main %}{% elif editing %}https://placem.at/places{% endif %}?w=500&h=300&fit=crop"
+      data-srv-name="main"
+    />
+    {% endif %}
+    <h5>After</h5>
+  </div>
+</div>
+
+<p class="post_dateline">
+    {# {% if page.published %}{{ page.published|date:"jS F Y" }}{% else %}Not published yet{% endif %} #}
+</p>
+{% page "content" type="wysiwyg" %}
+{% endblock %}

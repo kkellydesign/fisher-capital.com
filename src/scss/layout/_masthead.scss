@@ -1,0 +1,163 @@
+.l-header{
+    padding:1px 0;
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .home & {
+        height: 90vh;
+        background-position: top center;
+    }
+
+    .l-container{position:relative; margin-top: -1px;}
+    .srv-rel-wrap {
+      width: 100%;
+    }
+}
+
+.overlay{
+    padding: 20px 20px 40px;
+    text-align: center;
+    margin: 20% auto 20px;
+
+    h1, h2, h3, h4, h5, h6, p, li {
+      color: #fff;
+      font-weight: 400;
+      text-shadow: 1px 1px 30px #4c362b, 1px 1px 10px #000;
+    }
+
+    @include breakpoint($above-skinny){
+
+      padding: 0 20px;
+      max-width: 700px;
+
+      h1 {
+        @include font-size(5.0);
+        margin: 0;
+      }
+    }
+}
+
+.overlay{
+    padding: 20px 20px 40px;
+    text-align: center;
+
+    @include breakpoint($above-skinny){
+      margin: auto;
+      padding: 0 20px;
+      max-width: 700px;
+
+      h1 {
+        @include font-size( 5.0 );
+        margin: 0;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6, p, li {
+      color: #fff;
+      font-weight: 400;
+      text-shadow: 1px 1px 30px #4c362b, 1px 1px 10px #000;
+    }
+}
+
+
+.main-logo{
+    display: none;
+    text-align: center;
+    @include breakpoint($above-stacked){
+      display:flex;
+      margin: 0 20px;
+      float:left;
+      font-size: 18px;
+      color: #fff;
+      width: 200px;
+      height: 45px;
+    }
+}
+
+.l-masthead-photos{
+  margin-bottom: 2em;
+  @include breakpoint($break-masthead){
+    margin-bottom:0;
+  }
+}
+
+.header-title {
+  font-style: italic;
+  margin-top: 0.25em;
+  max-width: 370px;
+  @include breakpoint($above-stacked){
+    margin-top: 1.4em;
+  }
+}
+
+.mobile-masthead{
+    display:block;
+    padding: 3px 0 0 0;
+    @include clearfix();
+
+    .mobile-logo {
+      float:right;
+      width: 120px;
+      margin: 10px 10px 0 0;
+    }
+
+    @include breakpoint($above-stacked){
+        display:none;
+    }
+    @at-root .styleguide & {
+      display: block;
+    }
+}
+
+.intro-text {
+  padding: 1em 0 0.5em;
+  @include breakpoint($above-skinny){
+    padding: 3em 0 2em;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+}
+
+
+
+.headroom {
+    will-change: transform, background;
+    transition: transform 200ms linear, background 400ms ease-in-out, box-shadow 200ms linear;
+    position: fixed;
+    width: 100%;
+    z-index: 500;
+
+    &--not-top {
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    }
+
+    // & + * {
+    //   padding-top: 90px;
+    // }
+
+    @at-root .home &--top {
+      .main-logo {
+        padding: 30px 0 20px 0;
+        max-width: 190px;
+      }
+
+      + .home-carousel {
+        @include breakpoint($above-stacked){
+          padding-top: 148px;
+        }
+      }
+    }
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}

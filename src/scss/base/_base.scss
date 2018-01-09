@@ -1,0 +1,69 @@
+::-moz-selection { color: $selection-color;  background: $selection-bg; }
+::selection      { color: $selection-color;  background: $selection-bg; }
+
+body{
+	background: $body-bg;
+}
+
+
+blockquote {
+  quotes: "\201C""\201D""\2018""\2019";
+  	&:before {
+	  // color: tint($text-color, 50%);
+	  // content: "\201C";
+	  // font-size: 4em;
+	  // line-height: 0.1em;
+	  // margin-right: 0.25em;
+	  // vertical-align: -0.4em;
+	}
+	p {
+	  display: inline;
+	  &:before{
+	  	content: "\201C";
+	  }
+	  &:after{
+		content: "\201D";
+	  }
+	}
+	cite{
+		display:block;
+		color: tint($text-color, 40%);
+		font-size: 0.8em;
+		font-style:italic;
+		&:before{
+			content: "\2014  ";
+		}
+	}
+}
+
+
+.l-main table {
+	width: 100%;
+  font-size: rem-calc(1.5);
+  th{
+    text-align: left;
+    color: #fff;
+    background: $primary-color;
+  }
+  th, td {
+    padding: 6px;
+    border-bottom: 1px solid #fff;
+  }
+	&.striped tr:nth-child(odd) td{
+		background-color: $grey;
+	}
+  &.transparent {
+    td:first-child {
+      vertical-align: middle;
+      img{
+        margin: 0 auto;
+        display: block;
+        max-width: 200px;
+      }
+    }
+  }
+  p{
+    font-size: rem-calc(1.5);
+  }
+}
+.module table td{width: auto;}

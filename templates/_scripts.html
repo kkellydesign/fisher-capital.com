@@ -1,0 +1,92 @@
+{% load compress %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64995903-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script type="text/javascript">
+// These are the embedded Servee scripts. I'm not sure what these do, or if they are actually necessary.
+var MEDIA_URL = "{{ MEDIA_URL }}",
+    STATIC_URL = "{{ STATIC_URL }}",
+    MESSAGES = [
+        {% for message in messages %}
+        {tags: "{{ message.tags }}", message: "{{ message }}"}{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ]
+</script>
+{% compress js %}
+<script type="text/javascript">
+// Anonymous inline execution to hide from global scope and control $ variable
+(function ($) {
+    $.fn.equalHeight = function() {
+        $(this).each(function(){
+            var tallest = 0,
+                children = $(this).children();
+            children.each(function(i){
+                var current = $(this).height();
+                tallest = current > tallest ? current : tallest;
+            });
+            children.height(tallest);
+        });
+        return this;
+    };
+
+    // Comply with Django's AJAX CSRF protection
+    $('html').ajaxSend(function(event, xhr, settings) {
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+        }
+    });
+
+    var $notifications = $('#notifications');
+    $notifications.hide();
+
+    if ($notifications.find('.messages').children().length) {
+        $notifications.slideDown(1000);
+    }
+    $notifications.find('.dismiss').click(function (evt) {
+        $notifications.slideUp(500, function () {
+            $notifications.find('.messages').empty();
+        });
+    });
+}(jQuery));
+</script>
+{% endcompress %}
+<script src="{{ STATIC_URL }}js/min/scripts-min.js"></script>
+{% if request.user.is_staff %}<script type="text/javascript" src="{{ STATIC_URL }}servee/js/frontendadmin.js"></script>{% endif %}
+<!-- google analtyics embed -->
+<!-- need this -->
+
+<!--[if lt IE 9]>
+<script src="{{ STATIC_URL }}js/rem.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+

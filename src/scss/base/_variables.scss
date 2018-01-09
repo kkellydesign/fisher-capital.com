@@ -1,0 +1,105 @@
+// This is how you override the global grid
+// @include span(4 of 24 1/8);
+
+// breakpoint variables
+$above-stacked: 690px;
+$above-skinny: 767px;
+$above-normal: 985px;
+$above-normal-plus: 1100px;
+$above-wide: 1400px;
+$above-wide-plus: 1460px;
+
+$break-masthead: 900px;
+
+$above-stacked-only: $above-stacked $above-skinny - 1;
+$skinny-only: $above-skinny $above-normal - 1;
+$normal-only: $above-normal $above-wide - 1;
+
+//colors
+
+$tint: #fff;
+$shade: #3d1e09;
+
+
+$purple: #a328c5;
+$red: #c92728;
+$red2: mix($shade, $red, 20%);
+$blue: #263c87;
+$beige: #273a93;
+$brown: #513527;
+$green: #1abc9c;
+$orange: #ad573c;
+
+
+$light-grey: #e6e1dd;
+$grey: #9e948a;
+$dark-grey: #484440;
+$lightest-grey: mix($tint, $light-grey, 50%);
+
+$maroon: #73092e;
+
+$border-radius: 10px;
+
+%overlay-dark{
+	background-color: $brown;
+	background-color: rgba($brown, 0.8);
+}
+//mix($tint, $primary-color, 60%)
+
+//color keywords
+$primary-color: $dark-grey;
+$secondary-color: $orange;
+$text-color: #555;
+$link-color: $secondary-color;
+
+//global styles
+$body-bg: $light-grey;
+$selection-color: #fff;
+$selection-bg: $primary-color;
+
+$well-bg: $grey;
+$well-border: $well-bg;
+$well-padding: 10px;
+
+//type and important global styles
+$base-font-size: 1.6;
+$base-line-height: 1.4;
+$base-font-family: 'Raleway', sans-serif;
+$paragraph-font-weight: 400;
+$paragraph-font-size: 1.8; //this uses the rem-calc mixin
+$small-paragraph-font-size: 1.4;
+
+$alt-font-family: $base-font-family;
+$header-font-family: $base-font-family;
+$header-font-weight: 400;
+$header-line-height: 1.2;
+$header-color: $primary-color;
+$header-link-color: $primary-color;
+$header-link-color-hover: $secondary-color;
+$header-link-color-active: mix($shade, $header-link-color-hover, 30%);
+
+$button-font-family: $header-font-family;
+
+$calendar-card-bg-color: $grey;
+$calendar-card-text-color: $text-color;
+
+// Hamburger menu options
+$hamburger-layer-color: $tint;
+$hamburger-layer-width: 30px;
+$hamburger-layer-height: 2px;
+$hamburger-types: (spin);
+
+// Slick options
+$slick-font-path: "../fonts/";
+$slick-font-family: "slick";
+$slick-loader-path: "../img/";
+$slick-arrow-color: $primary-color;
+$slick-dot-color: $blue;
+$slick-dot-color-active: $primary-color;
+$slick-prev-character: '\2190';
+$slick-next-character: '\2192';
+$slick-dot-character: '\2022';
+$slick-dot-size: 24px;
+$opacity-default: 1;
+$opacity-on-hover: 1;
+$opacity-not-active: 1;

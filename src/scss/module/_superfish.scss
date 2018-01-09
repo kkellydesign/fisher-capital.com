@@ -1,0 +1,330 @@
+$sf-wrap-bg-color: $primary-color;
+$sf-link: #fff;
+
+$sf-top-level-bg: transparent;
+$sf-top-level-bg-hover-color: transparent;
+$sf-top-level-link-font-size: 18px;
+$sf-top-level-link-padding: 60px 14px;
+$sf-top-level-link-margin-top-bottom: 0;
+$sf-top-level-link-margin-left-right:0;
+$sf-top-level-link-radius: 0;
+$sf-top-level-link-color: $sf-link;
+$sf-top-level-link-color-hover: #bec3c7;
+$sf-top-level-current-bg: $sf-top-level-bg-hover-color;
+$sf-top-level-align: right;
+$sf-font-family: $header-font-family;
+
+$sf-level2-bg: $sf-top-level-bg-hover-color;
+$sf-level2-bg-hover-color: mix($shade, $sf-top-level-bg-hover-color, 20%);
+$sf-level2-link-font-size: $sf-top-level-link-font-size;
+$sf-level2-link-padding: 6px;
+$sf-level2-ul-radius: 0;
+$sf-level2-link-color: #fff;
+$sf-level2-link-hover-color: #fff;
+$sf-level2-current-bg: $sf-top-level-current-bg;
+
+$sf-level3-bg: $sf-level2-bg;
+$sf-level3-bg-hover-color: $sf-level2-bg-hover-color;
+$sf-level3-link-font-size: $sf-level2-link-font-size;
+$sf-level3-link-padding: $sf-level2-link-padding;
+$sf-level3-link-color: $sf-level2-link-color;
+$sf-level3-link-hover-color: $sf-level2-link-hover-color;
+$sf-level3-current-bg: $sf-level2-current-bg;
+
+$sf-li-hover: transparent;
+$sf-main-ul-bg: transparent;
+$sf-submenu-strip-color: $sf-main-ul-bg;
+
+
+.sf-wrap {
+    background: transparent;
+    text-align:$sf-top-level-align;
+    font-family: $sf-font-family;
+    width: 100%;
+
+    .sf-menu > ul > li > a {
+      will-change: padding;
+      transition: padding 200ms linear;
+    }
+
+    &.headroom--not-top{
+      background: $primary-color;
+
+      .sf-menu > ul > li > a {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+    }
+}
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu > ul, .sf-menu > ul * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sf-menu > ul li {
+    position: relative;
+}
+.sf-menu > ul ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 199;
+}
+.sf-menu > ul > li {
+    display:inline-block;
+    vertical-align: baseline;
+}
+.sf-menu > ul li:hover > ul,
+.sf-menu > ul li.sfHover > ul {
+    display: block;
+}
+
+.sf-menu > ul a {
+    display: block;
+    position: relative;
+
+}
+.sf-menu > ul ul ul {
+    top: 0;
+    left: 100%;
+}
+
+.sf-menu > ul ul {
+
+}
+.sf-menu > ul a {
+    padding: .75em 1em;
+    text-decoration: none;
+    border-bottom: none;
+    zoom: 1; /* IE7 */
+    color: $sf-link;
+}
+.sf-menu > ul{
+    margin:0;
+    border-radius: $sf-top-level-link-radius;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+
+    @include breakpoint($above-wide){
+        @if $sf-top-level-align == right {
+            margin-right: -$sf-top-level-link-margin-left-right;
+        }
+        @if $sf-top-level-align == left {
+            margin-left: -$sf-top-level-link-margin-left-right;
+        }
+    }
+    > li {
+        background-color: $sf-top-level-bg;
+        //white-space: nowrap; /* no need for Supersubs plugin */
+        //*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+        transition: background-color .3s;
+        //flex: 2 1 auto;
+        text-align: center;
+        &.sfHover, &:hover{
+            background-color: $sf-top-level-bg-hover-color;
+            /* only transition out, not in */
+            // -webkit-transition: none;
+            // transition: none;
+            > a{
+                transition: color .3s;
+                color:$sf-top-level-link-color-hover;
+                border-bottom: none;
+            }
+        }
+        &.active-menu-item{
+            > a{font-weight: 500;}
+            //&.sfHover > a, &:hover > a{ color: #fff;}
+        }
+        > a{
+            //first link only styles
+            font-weight: 500;
+            padding: $sf-top-level-link-padding;
+            border-radius: $sf-top-level-link-radius;
+            color: $sf-top-level-link-color;
+            margin: $sf-top-level-link-margin-top-bottom $sf-top-level-link-margin-left-right;
+
+            font-size: $sf-top-level-link-font-size * 0.7;
+            @include breakpoint($above-skinny){  font-size: $sf-top-level-link-font-size * 0.8;  }
+            @include breakpoint($above-normal){  font-size: $sf-top-level-link-font-size * .9;   }
+            @include breakpoint($above-normal-plus){  font-size: $sf-top-level-link-font-size * 1;   }
+            @include breakpoint($above-wide){  font-size: $sf-top-level-link-font-size * 1.1;   }
+        }
+        // &:first-child > a{margin-left:0;padding-left:0;}
+        // &:last-child > a{margin-right:0;padding-right: 0;}
+        &:last-child > ul{
+            left:auto;
+            right:0;
+        }
+        > ul{
+            text-align: left;
+            background: $sf-level2-bg;
+            min-width: 12em; /* allow long menu items to determine submenu width */
+            padding: 0;
+            > li{
+                margin:0;
+                //border-bottom: 1px solid rgba(#fff, 0.4);
+                &.sfHover, &:hover{
+                    background-color:$sf-level2-bg-hover-color;
+                     > a{
+                        color: $sf-level2-link-hover-color;
+                    }
+                }
+                > a{
+                    margin: 0;
+                    padding: $sf-level2-link-padding;
+                    color: $sf-level2-link-color;
+                    font-size: $sf-level2-link-font-size * 0.7;
+                    @include breakpoint($above-skinny){  font-size: $sf-level2-link-font-size * 0.7;  }
+                    @include breakpoint($above-normal){  font-size: $sf-level2-link-font-size * 0.9;   }
+                    @include breakpoint($above-wide){  font-size: $sf-level2-link-font-size * 1.1;   }
+                }
+
+                > ul{
+                    background: $sf-level3-bg;
+                    min-width: 12em; /* allow long menu items to determine submenu width */
+                    > li{
+                        &.sfHover, &:hover{
+                            background: $sf-level3-bg-hover-color;
+                            > a{
+                                color: $sf-level3-link-hover-color;
+                            }
+                        }
+                        > a{
+                            color: $sf-level3-link-hover-color;
+                            padding: $sf-level3-link-padding;
+                            font-size: $sf-level3-link-font-size * 0.7;
+                            @include breakpoint($above-skinny){  font-size: $sf-level3-link-font-size * 0.7;  }
+                            @include breakpoint($above-normal){  font-size: $sf-level3-link-font-size * 0.9;   }
+                            @include breakpoint($above-wide){  font-size: $sf-level3-link-font-size * 1.1;   }
+                        }
+                    }
+                    ul{
+                        display:none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*** arrows (for all except IE7) **/
+.sf-arrows .sf-with-ul {
+    padding-right: 14px;
+}
+/* styling for both css and generated arrows */
+.sf-arrows .sf-with-ul:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -3px;
+    height: 0;
+    width: 0;
+    /* order of following 3 rules important for fallbacks to work */
+    border: 5px solid transparent;
+    border-top-color: $sf-link; /* edit this to suit design (no rgba in IE8) */
+    border-top-color: rgba( $sf-link,.5);
+}
+.sf-arrows > li > .sf-with-ul:focus:after,
+.sf-arrows > li:hover > .sf-with-ul:after,
+.sf-arrows > .sfHover > .sf-with-ul:after {
+    border-top-color: white; /* IE8 fallback colour */
+}
+/* styling for right-facing arrows */
+.sf-arrows ul .sf-with-ul:after {
+    margin-top: -5px;
+    margin-right: 0;
+    border-color: transparent;
+    border-left-color: $sf-link; /* edit this to suit design (no rgba in IE8) */
+    border-left-color: rgba( $sf-link,.5);
+}
+
+.sf-arrows ul li > .sf-with-ul:focus:after,
+.sf-arrows ul li:hover > .sf-with-ul:after,
+.sf-arrows ul .sfHover > .sf-with-ul:after {
+    border-left-color: white;
+}
+// hiding third-level
+.sf-arrows ul ul .sf-with-ul:after,
+.sf-arrows ul ul li > .sf-with-ul:focus:after,
+.sf-arrows ul ul li:hover > .sf-with-ul:after,
+.sf-arrows ul ul .sfHover > .sf-with-ul:after { border-color: transparent;}
+
+
+// .sf-arrows ul .sf-with-ul:after{
+//  content: " ▸";
+// }
+
+.sf-vertical  > ul ul li{
+    position:static;
+}
+
+/* adding sf-vertical class in addition to sf-menu creates a vertical menu */
+/* eg. <ul class="sf-menu sf-vertical"> ... */
+.sf-vertical > ul {
+  width: 100%;
+  position: relative;
+  float:none;
+  margin:4px 0 0 0;
+  /* If you want the width of the closed menu to expand to its
+  widest top-level menu item (like its "Supersubs" submenus do),
+  replace the width rule above with the following two rules. */
+
+  /*
+  min-width: 12em;
+  *width: 12em;
+  */
+}
+.sf-vertical > ul ul {
+    left:   100%;
+    top: 0;
+    bottom:-4px;
+    height:156px;
+    .home &{
+        height: 222px;
+    }
+    ul{
+        margin-left:-48px;
+    }
+
+}
+.sf-vertical > ul > li {
+  float: none;
+}
+.sf-vertical > ul li {
+  width: 100%;
+}
+
+/*** alter arrow directions ***/
+.sf-vertical > ul.sf-arrows > li > .sf-with-ul:after {
+  margin-top: -5px;
+  margin-right: -3px;
+  border-color: transparent;
+  border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+  border-left-color: rgba(255,255,255,.5);
+}
+.sf-vertical > ul.sf-arrows li > .sf-with-ul:focus:after,
+.sf-vertical > ul.sf-arrows li:hover > .sf-with-ul:after,
+.sf-vertical > ul.sf-arrows .sfHover > .sf-with-ul:after {
+  border-left-color: white;
+}
+
+
+.l-nav-wrap {
+    display:flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+.l-nav-wrap .nav {
+  display: none;
+  @include breakpoint($above-stacked){
+    display: flex;
+    align-items: center;
+  }
+
+}

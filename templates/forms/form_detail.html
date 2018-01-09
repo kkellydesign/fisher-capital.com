@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block site_title %}Contact {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="l-main l-container" >
+	<div class="l-half">
+
+{% page "content" type="wysiwyg" %}
+
+
+        <form class="form" actn="/siteapi/submit_form" method="post" action="/404/" class="form-horizontal">
+        <p class="nojs"><em>Note: Please enable Javascript to use this contact form. <a href="http://support.microsoft.com/gp/howtoscript">Learn how here.</a></em></p>
+        {% csrf_token %}
+
+        <input name="to" type="hidden" value="ccc7d025-208d-4fae-a303-f532ef6578cc" />  <!-- This is admin@restore-utah.com's user ID -->
+        <input type="hidden" name="redirect" value="/form-success" />
+            <div class="control-group" id="div_id_name">
+                <label class="control-label required-field" for="id_name">Name </label>
+                <div class="controls">
+                    <input class="charfield required" id="id_name" maxlength="2000" name="name" required="" type="text">
+                </div>
+            </div>
+            <div class="control-group" id="div_id_e_mail">
+                <label class="control-label required-field" for="id_e_mail">E-mail </label>
+                <div class="controls">
+                    <input class="emailfield required" id="id_e_mail" maxlength="2000" name="e_mail" required="" type="email">
+                </div>
+            </div>
+            <div class="control-group" id="div_id_phone">
+                <label class="control-label" for="id_phone">Phone </label>
+                <div class="controls">
+                    <input class="charfield" id="id_phone" maxlength="2000" name="phone" type="text">
+                </div>
+            </div>
+            <div class="control-group" id="div_id_preferred_method_of_reply">
+                <label class="control-label" for="id_preferred_method_of_reply">Preferred method of reply</label>
+                <div class="controls">
+                    <label class="checkbox"><input id="id_preferred_method_of_reply_1" name="preferred_method_of_reply" type="checkbox" value="Phone">Phone</label> <label class="checkbox"><input id="id_preferred_method_of_reply_2" name="preferred_method_of_reply" type="checkbox" value="E-mail">E-mail</label>
+                </div>
+            </div>
+            <div class="control-group" id="div_id_message">
+                <label class="control-label" for="id_message">Message</label>
+                <div class="controls">
+                    <textarea class="charfield" cols="40" id="id_message" name="message" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="form-actions">
+                <input class="button" type="submit" value="Submit">
+            </div>
+        </form>
+  </div>
+</div>
+{% endblock content %}

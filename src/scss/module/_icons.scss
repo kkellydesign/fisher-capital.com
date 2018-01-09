@@ -1,0 +1,73 @@
+.social-wrap{
+  margin: 0 0 30px;
+  line-height: 1;
+  @include clearfix();
+
+}
+.twt,
+.fb,
+.in,
+.yp,
+.mail,
+.pint{
+  color: #fff;
+  padding: 6px 12px 6px 6px;
+  background-color: mix($tint, $primary-color, 70%);
+  border-radius: 4px;
+  margin: 0 10px 0 0;
+  display:inline-block;
+  vertical-align: middle;
+  transition: all 0.4s ease;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 1.5;
+
+  &:before{
+      content:"";
+      background: url(../img/icons.png) top left no-repeat;
+      background: url(../img/icons.svg) top left no-repeat, none;
+      background-size: 400px 400px;
+      width: 32px;
+      height: 32px;
+      display:inline-block;
+      vertical-align: middle;
+      background-position: 0 0;
+      margin-right: 8px;
+  }
+  &:hover{
+    background-color: #55ACEE;
+    color: #fff;
+  }
+}
+.fb{
+  background-color: mix($tint, #3B5998, 50%);
+  &:hover{background-color: #3B5998;}
+  &:before{
+    background-position: -32px 0;
+  }
+}
+.yp{
+  &:hover{background-color: #C41200;}
+  &:before{
+    background-position: -64px 0;
+  }
+}
+.in{
+  &:hover{background-color: #0077B5;}
+  &:before{
+    background-position: -96px 0;
+  }
+}
+.mail{
+  @include span(2 of 10 last);
+  &:hover{background-color: $secondary-color;}
+  &:before{
+    background-position: -128px 0;
+  }
+}
+.pint{
+  &:hover{background-color: #BD081C;}
+  &:before{
+    background-position: -160px 0;
+  }
+}

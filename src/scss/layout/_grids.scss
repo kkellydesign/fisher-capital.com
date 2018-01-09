@@ -1,0 +1,155 @@
+// global grid map
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  global-box-sizing: border-box,
+);
+
+.l-container{
+  @include container( $above-wide );
+  padding-left: 10px;
+  padding-right: 10px;
+
+  @include breakpoint($above-stacked){
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &.flex-container {
+      display: flex;
+    }
+  }
+  @include breakpoint($above-wide-plus){
+    padding-left: 0;
+    padding-right: 0;
+  }
+  &.no-pad{
+    padding-left:0;
+    padding-right: 0;
+  }
+  &.no-pad-right{
+    padding-right: 0;
+  }
+  &.skinny{
+    @include container( $above-normal );
+  }
+  &.margin-bottom {
+    margin-bottom: 2em;
+  }
+}
+.l-col-wrap{
+  margin: 36px 0;
+}
+
+@include breakpoint($break-masthead){
+  .l-masthead-list{
+    @include span(3);
+  }
+  .l-masthead-photos{
+    @include span(9 last);
+    position: relative;
+  }
+}
+
+.l-one-third{
+  @include breakpoint($above-stacked){
+    @include span(4);
+    &:nth-child(3n+3){
+      @include span(4 last);
+    }
+    &.l-last{
+      @include span(4 last);
+    }
+    &:nth-child(4n+4){
+      clear:both;
+    }
+  }
+  &.pad{
+      padding-bottom: 40px;
+      @include breakpoint($above-stacked){
+      padding-bottom: 80px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+.l-one-half{
+  @include breakpoint($above-stacked){
+    @include span(6);
+    &.l-last{
+      @include span(6 last);
+    }
+  }
+}
+
+.l-one-half-normal{
+  @include breakpoint($above-normal){
+    @include span(6);
+    &.l-last{
+      @include span(6 last);
+    }
+  }
+}
+
+
+.l-one-fifth{
+  @include breakpoint($above-stacked){
+    @include span(1 of 5 .125);
+    &.l-last{
+      @include span(1 of 5 .125 last);
+    }
+  }
+}
+
+.l-two-thirds{
+  @include breakpoint($above-stacked){
+    @include span(8);
+    &.l-last{
+      @include span(8 last);
+    }
+  }
+}
+.l-one-quarter{
+  @include breakpoint($above-stacked){
+    @include span(3);
+    &.l-last,
+    &:nth-child(4n+4){
+      @include span(3 last);
+    }
+    &:nth-child(4n+5){
+      clear:both;
+    }
+  }
+}
+.l-news{
+  @include breakpoint($above-stacked){
+    @include span(5);
+  }
+}
+.l-features{
+  @include breakpoint($above-stacked){
+    @include span(7 last);
+  }
+}
+.l-three-quarters{
+  @include breakpoint($above-stacked){
+    @include span(9);
+    &.l-last{
+      @include span(9 last);
+    }
+  }
+}
+
+
+// attempt at grid!!
+
+// .l-main {
+//   .l-container {
+//     display: grid;
+//     grid-template-columns: 1fr 3fr;
+//     grid-template-rows: auto;
+//
+//     > * {
+//       width: auto;
+//     }
+//   }
+// }

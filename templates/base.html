@@ -1,0 +1,175 @@
+<!doctype html>
+<!--[if lte IE 9 ]><html class="old-ie" dir="ltr" lang="{{ LANGUAGE_CODE }}"><![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!--><html dir="ltr" lang="{{ LANGUAGE_CODE }}"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    <title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    <meta name="author" content="{{ site.name }}">
+    <meta name="msapplication-TileColor" content="#3b854e"/>
+    <meta name="description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
+    <link href="/dist/icons/favicon.ico" rel=icon type="image/x-icon">
+    <link href="/dist/icons/favicon.png" rel=icon type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="/dist/icons/apple-touch-icon.png">
+    <!-- Facebook, LinkedIn, and Google Plus meta tags -->
+    <meta property="og:title" content="{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}"/>
+    <meta property="og:description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}"/>
+    <meta property="og:url" content="{{ page.get_absolute_url }}"/>
+    <meta property="og:site_name" content="{{ site.name }}"/>
+    <meta property="og:type" content="website"/>
+    {% endblock meta %}
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/css/styles.css?cacheBust121317" type="text/css" />
+    <script
+      src="http://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous">
+    </script>
+</head>
+<body class="{% block bodyclass %}bodyclass-{{page.path}}{% endblock %}">
+  <div class="off-canvas-wrap">
+    <div class="mobile-masthead">
+      <button class="hamburger hamburger--spin open-panel" type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+
+      <a href="/" class="mobile-logo" style="color: #fff;text-align:center;"><!--<img width="100%" src="/dist/img/logo.jpg">-->Restore West logo</a>
+    </div>
+    <nav class="mobile-nav">
+      {% block mobile-nav %}{% endblock %}
+    </nav>
+    <div class="off-canvas-content-wrap">
+      {% block header-wrap %}
+
+      <header class="l-header"
+        style="background-image:url({% if page.content.main_image %}{% imgix_url page.content.main_image %}{% else %}{% imgix_url "/dist/img/mast.jpg" %}{% endif %}?w=1800{% if page.path == "" %}&h=1000{% else %}&h=540{% endif %}&fit=crop&crop=entropy&blend=http://www.restore-west.com.sites.glass/dist/img/top-gradient-blue.jpg&ba=top,center&bc=top,center&bm=multiply)"
+        data-srv-name="main_image"
+      >
+      {% page "main_image" type="img" %}
+        <nav class="sf-wrap">
+          <div class="l-container no-pad">
+            <div class="l-nav-wrap sf-menu">
+              <a href="/" class="main-logo"><!--<img width="100%" src="/dist/img/logo.jpg">-->Restore West logo placeholder</a>
+              {% menu "Navigation" %}
+              <ul class="nav" id="menu-main-nav">
+                {% for item in tree %}
+                  <li id="menu-item-{{ item.name|slugify }}" class="{{ item.trail_class }}">
+                    <a class="{{ item.current_class }}" href="{{ item.url }}">{{ item.name }}</a>
+                      {% if item.children %}
+                      <ul>
+                          {% for citem in item.children %}
+                          <li class="{{ item.trail_class }}"><a class="{{ item.current_class }}" href="{{ citem.url }}">{{ citem.name }}</a></li>
+                          {% endfor %}
+                      </ul>
+                      {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+
+        <div class="overlay text-center">
+          <h1>{% page "title" %}</h1>
+          {% page "call-to-action" type="wysiwyg" %}
+        </div>
+        {% block carousel %}
+        {% endblock carousel %}
+
+
+      </header>
+      {% endblock header-wrap %}
+      {% block undernav %}
+      {% endblock undernav %}
+
+
+
+
+{% block main-content-wrap %}
+{% if page.content.intro or editing %}
+<section class="light-bg intro-text">
+  <div class="l-container skinny">
+    {% page "intro" type="wysiwyg" %}
+  </div>
+</section>
+{% endif %}
+<section class="l-section-pad main-subpage-content-area">
+  <div class="l-container skinny">
+      {% block content %}
+      {% page "Content" type="wysiwyg" placeholder="Insert Content here" %}
+      {% endblock content %}
+  </div>
+</section>
+{% endblock main-content-wrap %}
+
+
+<footer class="l-footer knockout">
+  <div class="l-container skinny">
+    <div class="l-one-quarter">
+      {% chunk "contact" %}
+    </div>
+    <div class="l-one-quarter">
+
+    </div>
+    <div class="l-one-third l-last">
+
+    </div>
+  </div>
+<div class="l-container skinny">
+ <p class="sm-foot-text">
+   &copy;{% now "Y" %}, {{ site.name }}. All rights reserved. Site by <a href="http://www.kellycreativetech.com">Kelly Creative Tech</a>.
+   {% if user.is_authenticated %}
+   {% if user.is_staff %}
+   <a href="/admin/">Site Admin</a>
+   {% endif %}
+   {% else %}
+   <a href="/admin/">Log&nbsp;in</a>
+   {% endif %}
+ </p>
+</div>
+</footer>
+
+
+    </div><!--/.off-canvas-content-wrap -->
+  </div><!-- /.off-canvas-wrap - wrapper for everything -->
+    {% block scripts %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-104308777-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    <script src="/dist/js/all.js?cacheBust121317"></script>
+    {% endblock %}
+    <!--
+                           KK  Lll.  LLLL
+    .KKKKKKKK.            KK .L.  ..L.. .
+              ..K       KK  L..   LL
+                K.   KK.   L.   .LL.
+              KK. KK      ..    LL.   l
+            KK.KK.        L.   LL    l
+         KK..K..         .LL l.LL  l
+       KK.  .K.   eee.   LL.   LL.
+     KK.     .K. ee.. .L...    L.
+               K eeee..   LLL..L  Lllyyyy.
+                                        .Y.
+    Site by                              .Y
+    KellyCreativeTech.com                 y
+                                         Y.
+                                        .y
+                                       .y
+                                      .Y
+                                     y              -->
+
+  </body>
+</html>

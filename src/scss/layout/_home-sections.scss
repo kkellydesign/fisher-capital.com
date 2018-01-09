@@ -1,0 +1,116 @@
+.open {
+    fill: $green;
+}
+
+.sm-icon {
+	max-width: 150px
+}
+.lg-icon {
+	max-width: 200px;
+}
+
+
+
+.home-posts {
+  h3 {
+    margin: 0.5em 0;
+
+    &:last-of-type {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.home-events {
+  .event {
+    margin: 0.5em 0;
+
+    &:first-of-type {
+      margin-top: 1em;
+    }
+
+    h2 {
+      margin-top: 0.42em;
+    }
+  }
+}
+
+
+
+.home-feature {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin-bottom: 1em;
+    background-color: $blue;
+    background-size: cover;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    min-height: 300px;
+
+    .srv-rel-wrap {
+      z-index: 10;
+    }
+
+    &.has-bg-img {
+      height: 100%;
+    }
+
+    img {
+        transition: all 0.4s ease;
+        opacity: 0.4;
+        display:block;
+    }
+
+    .title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      margin: 0;
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background-color: rgba($blue, 0.6);
+
+
+        &:hover {
+            background-color: rgba($blue, 0.9);
+        }
+      }
+
+      h1, h2, h3, h4 {
+          margin: 0;
+      }
+
+      p, h5 {
+          color: #fff;
+      }
+
+      a {
+          color: #fff;
+          text-decoration: none;
+          &:hover {
+              color: #fff;
+              text-decoration: none;
+          }
+      }
+
+    }
+
+    &:hover {
+        img {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    }
+
+    @include breakpoint($above-stacked){
+      margin-bottom: 0;
+    }
+}

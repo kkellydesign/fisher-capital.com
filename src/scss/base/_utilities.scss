@@ -1,0 +1,214 @@
+html, body {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+img{max-width: 100%;}
+
+.float-right{
+	float:right;
+	margin: 0 0 20px 20px;
+}
+.float-left{
+	float:left;
+	margin: 0 20px 20px 0;
+}
+.pos-rel{
+  position:relative;
+}
+.no-bullets {
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
+
+  li {
+  margin: 0;
+  padding: 0;
+  }
+}
+.text-center{
+  text-align:center;
+}
+.no-margin{
+  margin: 0;
+}
+.v-pad{
+  padding: 1em 0;
+  @include breakpoint($above-stacked){ padding: 3em 0; }
+}
+.pad-right{
+  padding-right: 0;
+  @include breakpoint($above-stacked){ padding-right: 30px;}
+}
+
+.light-bg {
+  background: $lightest-grey;
+}
+
+.fancybox, .fancybox:hover {
+  border-bottom: none;
+}
+//this totally shouldn't be necessary
+.old-ie{
+  .l-header, .l-footer, .l-sidebar, .l-main-nav-block, .l-main-content-wrap{display:block;}
+}
+// breakpoint classes
+.mobile-only{
+  display:block;
+  @include breakpoint($above-stacked){ display: none; }
+}
+.hide-mobile{
+  display:none;
+  @include breakpoint($above-stacked){ display: block; }
+}
+.vimeo-player{
+  width:100%;
+  @include breakpoint($above-skinny){
+    float:right;
+    margin:0 -50% 10px 20px;
+  }
+}
+//breakpoint settings
+@include breakpoint-set('no query fallbacks', true);
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.clearfix{
+	@include clearfix();
+}
+hr{
+  border-width: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+  border-top: 1px solid rgba(0,0,0,0.15);
+  margin: 1em 0;
+  clear:both;
+  @include clearfix();
+}
+
+//use rems with fallback, then the font-size mixin for fallbacks
+html {
+  font-size: 62.5%; /* Sets up the Base 10 stuff */
+}
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+//trying to remove compass dependancy
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin linear-gradient($fromColor, $toColor) {
+  //background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, right top, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(left, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(left, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(left, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(left, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(left, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#{$fromColor}', EndColorStr='#ffffff');
+}
+
+.gradient {
+    background: $primary-color; /* fallback for old browsers */
+    background: linear-gradient(to left, $red2 , $red); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient-blue {
+    background: $primary-color; /* fallback for old browsers */
+    background: linear-gradient(to left, $blue , mix($shade, $blue, 30%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient-reverse {
+    background: $primary-color; /* fallback for old browsers */
+    background: linear-gradient(to right, $red2 , $red); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sidebar-img{
+  margin-bottom: 2em;
+}
+.video-wrap{
+  position: relative;
+  width:100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 0;
+  height: 0;
+  margin-bottom:20px;
+  iframe, object, embed{
+    top:0;
+    left:0;
+    width:100% !important;
+    height:100% !important;
+    position: absolute;
+  }
+}
+
+table{
+  width: 100%;
+  td, tr{
+    vertical-align:top;
+  }
+}
+
+//facebook junk
+.fb-page, .fb-page iframe[style], .fb-page span {
+    width: 100% !important;
+}
+
+.white-bg {
+  background: #fff;
+}
+.blue-bg {
+  background: mix($blue, $tint, 20%);
+}
+
+/// Triangle helper mixin
+/// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+/// @param {Color} $color [currentcolor] - Triangle color
+/// @param {Length} $size [1em] - Triangle size
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+
+  $perpendicular-borders: $size solid transparent;
+
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
+
+.fancybox-caption-wrap {
+  text-align: center;
+  font-weight: bold;
+}
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+
+hr {
+  border: 0 none;
+  border-top: 1px solid mix($shade, $grey, 20%);
+}
