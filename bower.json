@@ -1,0 +1,26 @@
+{
+  "name": "kct-starter-template",
+  "version": "1.0.0",
+  "authors": [
+    "Kasey Kelly<kasey@servee.com>"
+  ],
+  "description": "KCT Starter Template",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "susy": "^2.2.12",
+    "css-hamburgers": "^0.8.1",
+    "superfish": "^1.7.9",
+    "fancybox": "git://github.com/fancyapps/fancybox.git#^3.0.47",
+    "slick-carousel": "git://github.com/kenwheeler/slick.git#^1.6.0"
+  },
+  "private": true
+}
