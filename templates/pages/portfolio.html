@@ -5,7 +5,13 @@
 {% block content %}
 
 
-<div class="l-container skinny">some stuff</div>
+<div class="l-container skinny">
+  <ul class="portfolio-list">
+  {% for a in page.content.portfolio %}
+  <li><a data-fancybox="gallery" href="#id_portfolio_item_{{ forloop.counter }}">{{ a.title }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
 
 
 
