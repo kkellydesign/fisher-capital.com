@@ -1,0 +1,16 @@
+.photo-callout-ribbon {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: $orange;
+
+  .content-wrap {
+    background-color: rgba(255,255,255,0.2);
+  }
+  .content-col {
+    background: $brown;
+  }
+
+  .callout-button {
+    background: $green;
+  }
+}

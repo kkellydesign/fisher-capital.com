@@ -13,58 +13,134 @@
   <div class="l-container skinny">
       {% block content %}
       <h2 class="big-subhead">{% page "content_heading" %}</h2>
-      <div class="big">
-        {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
-      </div>
+      {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
 
-      <hr>
-
-      {% children as "posts" parent="portfolio" limit=3 %}
-      {% for post in posts %}
-
-
-
-      <div class="post-img-wrap">
-
-        {% if post.content.before and post.content.main %}
-        <div class="post-img-half">
-          <a href="{{ post.get_absolute_url }}">
-            <img src="{% imgix_url post.content.before %}?w=500&h=300&fit=crop" />
-          </a>
-          <h5>Before</h5>
+      <div class="l-container">
+        <div class="l-one-half">
+          <h4><small>icon will go here</small> {% page "subcontent_title_1" placeholder="title" %}</h4>
+          {% page "subcontent_1" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
-        <div class="post-img-half after">
-          <a href="{{ post.get_absolute_url }}">
-            <img src="{% imgix_url post.content.main %}?w=500&h=300&fit=crop" />
-          </a>
-          <h5>After</h5>
-        </div>
-        {% elif post.content.main_image %}
-        <a href="{{ post.get_absolute_url }}">
-          <img src="{% imgix_url post.content.main_image %}?w=1000&h=300&fit=crop" />
-        </a>
-        {% endif %}
-
-      </div>
-      <div class="post-preview-text clearfix">
-        <div class="l-one-third">
-          <h4><a href="{{ post.get_absolute_url }}" class="post-link no-underline">{{ post.content.title }}</a></h4>
-        </div>
-        <div class="l-two-thirds l-last">
-          {{ post.content.intro|safe|truncatewords_html:60 }}
-          <p class="more"><a href="{{ post.get_absolute_url }}">Read more...</a></p>
+        <div class="l-one-half l-last">
+          <h4><small>icon will go here</small> {% page "subcontent_title_2" placeholder="title" %}</h4>
+          {% page "subcontent_2" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
       </div>
 
 
 
-
-      {% empty %}
-      <p>No Messages have been posted yet.</p>
-      {% endfor %}
 
 
       {% endblock content %}
   </div>
 </section>
+<section class="photo-callout-ribbon">
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h5>{% page "callout_head_1" placeholder="Heading" %} <small>{% page "callout_small_1" placeholder="subhead" %}</small></h5>
+      </div>
+      <a href="#TODO" class="callout-button green-bg">More > </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="l-container skinny">
+    <h2 class="green">{% page "testimonial_head_1" placeholder="Heading" %}</h2>
+    {% page "testimonial" type="wysiwyg" placeholder="Insert Content Here" %}
+  </div>
+</section>
+
+
+<section class="photo-callout-ribbon">
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h5>{% page "callout_head_2" placeholder="Heading" %} <small>{% page "callout_small_2" placeholder="subhead" %}</small></h5>
+      </div>
+      <a href="#TODO" class="callout-button green-bg">More > </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-project">
+  <div class="l-container skinny">
+    <div class="l-one-quarter">
+      {% page "featured_project" type="img" %}
+      {% if page.content.featured_project or editing %}
+      <img
+        class="home-featured"
+        src="{% if page.content.featured_project %}{% imgix_url page.content.featured_project %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+        data-srv-name="featured_project"
+      />
+      {% endif %}
+    </div>
+    <div class="l-three-quarters l-last">
+      {% page "featured_project" type="wysiwyg" placeholder="Insert Content Here" %}
+
+      <p class="text-right"><a href="/real-estate">View more Featured Projects >>></a></p>
+    </div>
+  </div>
+</section>
+
+
 {% endblock main-content-wrap %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+{% children as "posts" parent="portfolio" limit=3 %}
+{% for post in posts %}
+
+
+
+<div class="post-img-wrap">
+
+  {% if post.content.before and post.content.main %}
+  <div class="post-img-half">
+    <a href="{{ post.get_absolute_url }}">
+      <img src="{% imgix_url post.content.before %}?w=500&h=300&fit=crop" />
+    </a>
+    <h5>Before</h5>
+  </div>
+  <div class="post-img-half after">
+    <a href="{{ post.get_absolute_url }}">
+      <img src="{% imgix_url post.content.main %}?w=500&h=300&fit=crop" />
+    </a>
+    <h5>After</h5>
+  </div>
+  {% elif post.content.main_image %}
+  <a href="{{ post.get_absolute_url }}">
+    <img src="{% imgix_url post.content.main_image %}?w=1000&h=300&fit=crop" />
+  </a>
+  {% endif %}
+
+</div>
+<div class="post-preview-text clearfix">
+  <div class="l-one-third">
+    <h4><a href="{{ post.get_absolute_url }}" class="post-link no-underline">{{ post.content.title }}</a></h4>
+  </div>
+  <div class="l-two-thirds l-last">
+    {{ post.content.intro|safe|truncatewords_html:60 }}
+    <p class="more"><a href="{{ post.get_absolute_url }}">Read more...</a></p>
+  </div>
+</div>
+
+
+{% empty %}
+<p>No Messages have been posted yet.</p>
+{% endfor %}
+
+{% endcomment %}

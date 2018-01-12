@@ -111,14 +111,28 @@
 
 <footer class="l-footer knockout">
   <div class="l-container skinny">
-    <div class="l-one-quarter">
-      {% chunk "contact" %}
+    <div class="l-one-third">
+      {% chunk "footer_col_1" %}
     </div>
-    <div class="l-one-quarter">
-
+    <div class="l-one-third">
+      {% chunk "footer_col_2" %}
     </div>
     <div class="l-one-third l-last">
-
+      {% menu "Navigation" %}
+            <ul class="footer-nav">
+              {% for item in tree %}
+                <li id="menu-item-{{ item.name|slugify }}" class="{{ item.trail_class }}">
+                  <a class="{{ item.current_class }}" href="{{ item.url }}">{{ item.name }}</a>
+                    {% if item.children %}
+                    <ul>
+                        {% for citem in item.children %}
+                        <li class="{{ item.trail_class }}"><a class="{{ item.current_class }}" href="{{ citem.url }}">{{ citem.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
     </div>
   </div>
 <div class="l-container skinny">

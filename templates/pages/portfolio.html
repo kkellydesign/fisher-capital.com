@@ -4,71 +4,29 @@
 
 {% block content %}
 
-          {% children as posts order_by="-published" %}
-          {% autopaginate posts 10 %}
-              {% for post in posts %}
+
+<div class="l-container skinny">some stuff</div>
 
 
 
-              <div class="post-img-wrap">
+<div class="l-container skinny">
 
-                {% if post.content.before and post.content.main %}
-                <div class="post-img-half">
-                  <a href="{{ post.get_absolute_url }}">
-                    <img src="{% imgix_url post.content.before %}?w=500&h=300&fit=crop" />
-                  </a>
-                  <h5>Before</h5>
-                </div>
-                <div class="post-img-half after">
-                  <a href="{{ post.get_absolute_url }}">
-                    <img src="{% imgix_url post.content.main %}?w=500&h=300&fit=crop" />
-                  </a>
-                  <h5>After</h5>
-                </div>
-                {% elif post.content.main_image %}
-                <a href="{{ post.get_absolute_url }}">
-                  <img src="{% imgix_url post.content.main_image %}?w=1000&h=300&fit=crop" />
-                </a>
-                {% endif %}
+<ul class="thumbnails">
+{% page_list "portfolio" %}
+  {% list_item "gallery_img" type="img" %}
+  <li>
+    <a data-fancybox="gallery" class="fancybox" rel="fancied" href="#id_portfolio_item_{{ forloop.counter }}" title="{{ list_item.title }}">
+      {% list_item "title" type="text" %}
+      <img src="{% imgix_url list_item.gallery_img %}?w=250&h=250" />
+    </a>
+    <div id="id_portfolio_item_{{ forloop.counter }}" style="display:none;">
+      {% list_item "description" type="wysiwyg" %}
+    </div>
+  </li>
+{% end_list %}
+</ul>
 
-              </div>
-              <div class="post-preview-text clearfix">
-                <div class="l-one-third">
-                  <h4><a href="{{ post.get_absolute_url }}" class="post-link no-underline">{{ post.content.title }}</a></h4>
-                </div>
-                <div class="l-two-thirds l-last">
-                  {{ post.content.intro|safe|truncatewords_html:60 }}
-                  <p class="more"><a href="{{ post.get_absolute_url }}">Read more...</a></p>
-                </div>
-              </div>
+</div>
 
-
-
-
-              {% empty %}
-              <p>No Messages have been posted yet.</p>
-              {% endfor %}
-
-              {% paginate %}
-
-
-
-
-
-
-    <p><br><br></p>
-    <h2>{% page "second_subtitle" %}</h2>
-
-    <ul class="thumbnails">
-    {% page_list "photos" %}
-    {% list_item "image" type="img" %}
-      <li style="max-width: 250px;vertical-align: top;">
-        <a data-fancybox="gallery" style="text-decoration:none;font-size:14px;" class="fancybox" href="{% imgix_url list_item.image %}?w=1100" rel="fancybox" data-caption="{{list_item.caption|striptags}}">
-         <img style="display: block;margin-bottom:10px;" alt="multifamily homes" src="{% imgix_url list_item.image %}?w=300&h=200&fit=crop">
-         {% list_item "caption" type="text" %}
-        </a>
-      </li>
-      {% end_list %}
-    </ul>
 
 {% endblock content %}
