@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>green_human</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-335.000000, -1588.000000)">
+        <g id="green_human" transform="translate(335.000000, 1588.000000)" fill-rule="nonzero">
+            <circle id="Oval" fill="#A7B241" cx="30.72" cy="30.72" r="30.72"></circle>
+            <circle id="Oval" fill="#FFFFFF" cx="30.22" cy="19.24" r="8.71"></circle>
+            <path d="M36,30.71 L25.44,30.71 C20.3469751,30.7210001 16.2210001,34.8469751 16.21,39.94 L16.21,50.47 C20.9039653,51.9485451 25.7987219,52.690686 30.72,52.67 C35.6445467,52.6905921 40.5425832,51.9484654 45.24,50.47 L45.24,39.94 C45.2289826,34.8430792 41.0969297,30.7154983 36,30.71 Z" id="Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

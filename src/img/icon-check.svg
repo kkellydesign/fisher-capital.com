@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>green_check</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1245.000000, -1588.000000)">
+        <g id="green_check" transform="translate(1245.000000, 1588.000000)" fill-rule="nonzero">
+            <circle id="Oval" fill="#A7B241" cx="30.72" cy="30.72" r="30.72"></circle>
+            <path d="M11,37.92 C15.1679223,41.2021895 18.8187211,45.0923297 21.83,49.46 C23.83,52.3 27.45,51.56 28.68,48.56 C33.158246,37.7648692 39.9912812,28.1063739 48.68,20.29 C52.25,17 46.94,11.74 43.37,15 C33.7996663,23.7563005 26.310011,34.5431808 21.45,46.57 L28.31,45.67 C24.9840242,40.7452398 20.93915,36.3464391 16.31,32.62 C12.57,29.62 7.23,34.92 11,37.92 Z" id="Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

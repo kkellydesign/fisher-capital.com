@@ -35,4 +35,12 @@
 </div>
 
 
+{% if page.content.test or editing %}
+<img
+  class="home-featured"
+  src="{% if page.content.test %}{% imgix_url page.content.test %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+  data-srv-name="test"
+/>
+{% endif %}
+
 {% endblock content %}
