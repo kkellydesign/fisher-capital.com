@@ -12,17 +12,12 @@
 <section class="l-section-pad main-subpage-content-area">
   <div class="l-container skinny">
       {% block content %}
-      <h2 class="big-subhead">{% page "content_heading" %}</h2>
+      <h2 class="big-subhead">Kasey just added this {% page "content_heading" %}</h2>
       {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
 
       <div class="l-container">
         <div class="l-one-half">
-          <h4><small>icon will go here</small> {% page "subcontent_title_1" placeholder="title" %}</h4>
           {% page "subcontent_1" type="wysiwyg" placeholder="Insert Content here" %}
-        </div>
-        <div class="l-one-half l-last">
-          <h4><small>icon will go here</small> {% page "subcontent_title_2" placeholder="title" %}</h4>
-          {% page "subcontent_2" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
       </div>
 
@@ -33,8 +28,8 @@
       {% endblock content %}
   </div>
 </section>
-{% page "callout_bg_1" type="img" %}
-<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_1 %}{% imgix_url page.content.callout_bg_1 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_1">
+
+<section class="photo-callout-ribbon">
   <div class="content-wrap">
     <div class="l-container skinny">
       <div class="content-col dark-bg">
@@ -46,47 +41,56 @@
   </div>
 </section>
 
+
+<section class="about-ribbon">
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h5>{% page "callout_head_1" placeholder="Heading" %}</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="testimonial">
   <div class="l-container skinny">
-    <h2 class="green">{% page "testimonial_head_1" placeholder="Heading" %}</h2>
+    {% page "testimonial" type="wysiwyg" placeholder="Insert Content Here" %}
+  </div>
+</section>
+
+<section class="about-ribbon">
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h5>{% page "callout_head_1" placeholder="Heading" %}</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="l-container skinny">
+    {% page "testimonial" type="wysiwyg" placeholder="Insert Content Here" %}
+  </div>
+</section>
+
+<section class="about-ribbon">
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h5>{% page "callout_head_1" placeholder="Heading" %}</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="l-container skinny">
     {% page "testimonial" type="wysiwyg" placeholder="Insert Content Here" %}
   </div>
 </section>
 
 
-{% page "callout_bg_2" type="img" %}
-<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_2 %}{% imgix_url page.content.callout_bg_2 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_2">
-
-  <div class="content-wrap">
-    <div class="l-container skinny">
-      <div class="content-col dark-bg">
-        <h5>{% page "callout_head_2" placeholder="Heading" %} <small>{% page "callout_small_2" placeholder="subhead" %}</small></h5>
-      </div>
-      <a href="#TODO" class="callout-button green-bg">More > </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="featured-project">
-  <div class="l-container skinny">
-    <div class="l-one-quarter">
-      {% page "featured_project" type="img" %}
-      {% if page.content.featured_project or editing %}
-      <img
-        class="home-featured"
-        src="{% if page.content.featured_project %}{% imgix_url page.content.featured_project %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-        data-srv-name="featured_project"
-      />
-      {% endif %}
-    </div>
-    <div class="l-three-quarters l-last">
-      {% page "featured_project" type="wysiwyg" placeholder="Insert Content Here" %}
-
-      <p class="text-right"><a href="/real-estate">View more Featured Projects >>></a></p>
-    </div>
-  </div>
-</section>
 
 
 {% endblock main-content-wrap %}

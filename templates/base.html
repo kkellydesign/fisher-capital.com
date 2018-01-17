@@ -46,14 +46,13 @@
       {% block header-wrap %}
 
       <header class="l-header"
-        style="background-image:url({% if page.content.main_image %}{% imgix_url page.content.main_image %}{% else %}{% imgix_url "/dist/img/mast.jpg" %}{% endif %}?w=1800{% if page.path == "" %}&h=1000{% else %}&h=540{% endif %}&fit=crop&crop=entropy&blend=http://www.restore-west.com.sites.glass/dist/img/top-gradient-blue.jpg&ba=top,center&bc=top,center&bm=multiply)"
-        data-srv-name="main_image"
-      >
+        style="background-image:url({% if page.content.main_image %}{% imgix_url page.content.main_image %}{% else %}{% imgix_url "/dist/img/logo.jpg" %}{% endif %}?w=1800{% if page.path == "" %}&h=1000{% else %}&h=540{% endif %}&fit=crop&crop=entropy&blend=http://www.fisher-capital.com.sites.glass/dist/img/top-gradient-blue.jpg&ba=top,center&bc=top,center&bm=multiply)"
+        data-srv-name="main_image">
       {% page "main_image" type="img" %}
         <nav class="sf-wrap">
           <div class="l-container no-pad">
             <div class="l-nav-wrap sf-menu">
-              <a href="/" class="main-logo"><!--<img width="100%" src="/dist/img/logo.jpg">-->Restore West logo placeholder</a>
+              <a href="/" class="main-logo"><!--<img width="100%" src="/dist/img/logo.png">-->Restore West logo placeholder</a>
               {% menu "Navigation" %}
               <ul class="nav" id="menu-main-nav">
                 {% for item in tree %}

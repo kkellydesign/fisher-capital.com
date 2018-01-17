@@ -17,7 +17,6 @@
 
       <div class="l-container">
         <div class="l-one-half">
-          <h4><small>icon will go here</small> {% page "subcontent_title_1" placeholder="title" %}</h4>
           {% page "subcontent_1" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
         <div class="l-one-half l-last">
@@ -33,8 +32,7 @@
       {% endblock content %}
   </div>
 </section>
-{% page "callout_bg_1" type="img" %}
-<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_1 %}{% imgix_url page.content.callout_bg_1 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_1">
+<section class="photo-callout-ribbon">
   <div class="content-wrap">
     <div class="l-container skinny">
       <div class="content-col dark-bg">
@@ -54,9 +52,7 @@
 </section>
 
 
-{% page "callout_bg_2" type="img" %}
-<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_2 %}{% imgix_url page.content.callout_bg_2 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_2">
-
+<section class="photo-callout-ribbon">
   <div class="content-wrap">
     <div class="l-container skinny">
       <div class="content-col dark-bg">
