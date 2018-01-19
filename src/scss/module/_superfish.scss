@@ -4,7 +4,7 @@ $sf-link: #fff;
 $sf-top-level-bg: transparent;
 $sf-top-level-bg-hover-color: transparent;
 $sf-top-level-link-font-size: 18px;
-$sf-top-level-link-padding: 60px 14px;
+$sf-top-level-link-padding: 20px 14px;
 $sf-top-level-link-margin-top-bottom: 0;
 $sf-top-level-link-margin-left-right:0;
 $sf-top-level-link-radius: 0;
@@ -103,21 +103,12 @@ $sf-submenu-strip-color: $sf-main-ul-bg;
     color: $sf-link;
 }
 .sf-menu > ul{
-    margin:0;
+    margin:0 auto;
     border-radius: $sf-top-level-link-radius;
     // display: flex;
     // flex-direction: row;
     // flex-wrap: wrap;
     // justify-content: space-between;
-
-    @include breakpoint($above-wide){
-        @if $sf-top-level-align == right {
-            margin-right: -$sf-top-level-link-margin-left-right;
-        }
-        @if $sf-top-level-align == left {
-            margin-left: -$sf-top-level-link-margin-left-right;
-        }
-    }
     > li {
         background-color: $sf-top-level-bg;
         //white-space: nowrap; /* no need for Supersubs plugin */
