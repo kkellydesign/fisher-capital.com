@@ -34,6 +34,16 @@
 
 </div>
 
+<div style="width: 400px">
+{% page "page_image" type="img" %}
+{% if page.content.page_image or editing %}
+<img
+  class="home-featured"
+  src="{% if page.content.page_image %}{% imgix_url page.content.page_image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
+  data-srv-name="page_image"
+/>
+{% endif %}
+</div>
 
 {% if page.content.test or editing %}
 <img

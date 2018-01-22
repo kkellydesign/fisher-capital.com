@@ -12,7 +12,7 @@
 <section class="l-section-pad main-subpage-content-area">
   <div class="l-container skinny">
       {% block content %}
-      <h2 class="big-subhead">Kasey just added this {% page "content_heading" %}</h2>
+      <h2 class="big-subhead">{% page "content_heading" %}</h2>
       {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
 
       <div class="l-container">
@@ -20,6 +20,9 @@
           {% page "subcontent_1" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
       </div>
+
+
+
 
 
       {% endblock content %}
