@@ -5,13 +5,55 @@
   background-position: center center;
 
   .content-wrap {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba($light-beige, 0.3);
   }
+
+  .l-container {
+    display: flex;
+  }
+
   .content-col {
     background: $brown;
+    flex: 1 1 auto;
+    padding: 10px;
+    margin-right: 10px;
+    display: flex;
   }
 
   .callout-button {
     background: $green;
+    width: 75px;
+    color: #fff;
+    background-color: $green;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+
+    &:hover {
+      background-color: mix($shade, $green, 15%);
+    }
+
+  }
+
+  h5 {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+
+    .main-text {
+      width: 50%;
+      border-right: 1px solid #fff;
+      margin-right: 20px;
+      padding-right: 20px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    small {
+      color: #fff;
+      width: 50%;
+    }
   }
 }
