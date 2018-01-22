@@ -62,7 +62,7 @@
                       {% if item.children %}
                       <ul>
                           {% for citem in item.children %}
-                          <li class="{{ item.trail_class }}"><a class="{{ item.current_class }}" href="{{ citem.url }}">{{ citem.name }}</a></li>
+                          <li class="{{ item.trail_class }}"><a class="{{ item.current_class }}" href="{{ citem.url }}"><span>{{ citem.name }}</span></a></li>
                           {% endfor %}
                       </ul>
                       {% endif %}

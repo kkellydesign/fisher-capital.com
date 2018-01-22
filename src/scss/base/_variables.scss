@@ -18,7 +18,7 @@ $normal-only: $above-normal $above-wide - 1;
 //colors
 
 $tint: #fff;
-$shade: #3d1e09;
+$shade: #000;
 
 
 $purple: #a328c5;
@@ -26,8 +26,9 @@ $red: #c92728;
 $red2: mix($shade, $red, 20%);
 $blue: #263c87;
 $beige: #797363;
+$light-beige: #edebe8;
 $brown: #513527;
-$green: #1abc9c;
+$green: #a7b241;
 $orange: #ad573c;
 
 
@@ -49,7 +50,7 @@ $border-radius: 10px;
 //color keywords
 $primary-color: $dark-grey;
 $secondary-color: $orange;
-$text-color: #555;
+$text-color: #544F4D;
 $link-color: $secondary-color;
 
 //global styles
