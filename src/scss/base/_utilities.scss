@@ -46,6 +46,13 @@ img{max-width: 100%;}
   background: $lightest-grey;
 }
 
+.green-heads {
+  h1, h2, h3, h4, h5, h6 {
+    color: $green;
+    text-transform: uppercase;
+  }
+}
+
 .fancybox, .fancybox:hover {
   border-bottom: none;
 }

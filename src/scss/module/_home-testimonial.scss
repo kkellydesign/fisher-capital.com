@@ -1,0 +1,27 @@
+
+
+.testimonial {
+  padding: 30px 0;
+  background: url(/dist/img/circles.svg) center center no-repeat #fff;
+  background-size: 200px 200px;
+  text-align: center;
+
+  .test-inner {
+    max-width: 600px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  @include breakpoint($above-stacked){
+    padding: 80px 0;
+    background-size: 300px 300px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $green;
+  }
+
+  p, li {
+    font-size: 1.2em;
+  }
+}

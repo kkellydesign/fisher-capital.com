@@ -1,7 +1,7 @@
 .l-section-pad{
-	padding: 3em 0 2em;
+	padding: 2em 0;
 	@include breakpoint($above-stacked){
-		padding: 4em 0 3em;
+		padding: 3em 0;
 	}
 }
 

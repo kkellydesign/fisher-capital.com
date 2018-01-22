@@ -3,25 +3,20 @@
 {% block bodyclass %}home{% endblock %}
 
 {% block main-content-wrap %}
-<section class="light-bg intro-text l-section-pad">
-  <div class="l-container skinny">
-    {% page "intro" type="wysiwyg" %}
-  </div>
-</section>
-
 <section class="l-section-pad main-subpage-content-area">
   <div class="l-container skinny">
       {% block content %}
-      <h2 class="big-subhead">{% page "content_heading" %}</h2>
-      {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+      <div class="intro">
+        {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
+      </div>
 
-      <div class="l-container">
+      <div class="clearfix green-heads">
         <div class="l-one-half">
-          <h4><small>icon will go here</small> {% page "subcontent_title_1" placeholder="title" %}</h4>
+          <h4 class="h6"><img class="home-icon" src="/dist/img/icon-human.svg"> {% page "subcontent_title_1" placeholder="title" %}</h4>
           {% page "subcontent_1" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
         <div class="l-one-half l-last">
-          <h4><small>icon will go here</small> {% page "subcontent_title_2" placeholder="title" %}</h4>
+          <h4 class="h6"><img class="home-icon" src="/dist/img/icon-check.svg"> {% page "subcontent_title_2" placeholder="title" %}</h4>
           {% page "subcontent_2" type="wysiwyg" placeholder="Insert Content here" %}
         </div>
       </div>
@@ -40,15 +35,15 @@
       <div class="content-col dark-bg">
         <h5><span class="main-text">{% page "callout_head_1" placeholder="Heading" %}</span> <small>{% page "callout_small_1" placeholder="subhead" %}</small></h5>
       </div>
-      <a href="#TODO" class="callout-button">More <br>>>> </a>
+      <a href="#TODO" class="callout-button"><span>More <br>>>> </span></a>
       </div>
     </div>
   </div>
 </section>
 
 <section class="testimonial">
-  <div class="l-container skinny">
-    <h2 class="green">{% page "testimonial_head_1" placeholder="Heading" %}</h2>
+  <div class="test-inner">
+    <h2 class="h1 green">{% page "testimonial_head_1" placeholder="Heading" %}</h2>
     {% page "testimonial" type="wysiwyg" placeholder="Insert Content Here" %}
   </div>
 </section>
@@ -62,7 +57,7 @@
       <div class="content-col dark-bg">
         <h5><span class="main-text">{% page "callout_head_2" placeholder="Heading" %}</span> <small>{% page "callout_small_2" placeholder="subhead" %}</small></h5>
       </div>
-      <a href="#TODO" class="callout-button">More <br>>>> </a>
+      <a href="#TODO" class="callout-button"><span>More <br>>>> </span></a>
       </div>
     </div>
   </div>
@@ -81,7 +76,7 @@
       {% endif %}
     </div>
     <div class="l-three-quarters l-last">
-      {% page "featured_project" type="wysiwyg" placeholder="Insert Content Here" %}
+      {% page "featured_project_content" type="wysiwyg" placeholder="Insert Content Here" %}
 
       <p class="text-right"><a href="/real-estate">View more Featured Projects >>></a></p>
     </div>

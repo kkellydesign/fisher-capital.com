@@ -19,8 +19,12 @@ p, li, div, table{
 p{
 	margin: 0 0 1em 0;
 }
-.intro{
-	font-family: $header-font-family;
+.intro {
+  padding: 0 0 20px 0;
+
+  &, & p {
+	   font-size: 1.2em;
+  }
 }
 
 b, strong{
@@ -103,12 +107,12 @@ h1, h2, h3, h4, h5, h6{
     .big{
     	@include font-size( $paragraph-font-size * 1.2 * $multiplier );
     }
-    h1{ @include font-size( $paragraph-font-size * 2 * $multiplier); }
-    h2{ @include font-size( $paragraph-font-size * 1.8 * $multiplier); }
-    h3{ @include font-size( $paragraph-font-size * 1.7 * $multiplier); }
-    h4{ @include font-size( $paragraph-font-size * 1.6 * $multiplier); }
-    h5{ @include font-size( $paragraph-font-size * 1.5 * $multiplier); }
-    h6{ @include font-size( $paragraph-font-size * 1.2 * $multiplier); }
+    h1, .h1{ @include font-size( $paragraph-font-size * 2 * $multiplier); }
+    h2, .h2{ @include font-size( $paragraph-font-size * 1.8 * $multiplier); }
+    h3, .h3{ @include font-size( $paragraph-font-size * 1.7 * $multiplier); }
+    h4, .h4{ @include font-size( $paragraph-font-size * 1.6 * $multiplier); }
+    h5, .h5{ @include font-size( $paragraph-font-size * 1.5 * $multiplier); }
+    h6, .h6{ @include font-size( $paragraph-font-size * 1.4 * $multiplier); }
 }
 
 @include type-sizes(0.9);

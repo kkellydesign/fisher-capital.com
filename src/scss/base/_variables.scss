@@ -32,7 +32,7 @@ $green: #a7b241;
 $orange: #ad573c;
 
 
-$light-grey: #e6e1dd;
+$light-grey: $light-beige;
 $grey: #9e948a;
 $dark-grey: #484440;
 $lightest-grey: mix($tint, $light-grey, 50%);
@@ -49,12 +49,12 @@ $border-radius: 10px;
 
 //color keywords
 $primary-color: $dark-grey;
-$secondary-color: $orange;
+$secondary-color: $green;
 $text-color: #544F4D;
 $link-color: $secondary-color;
 
 //global styles
-$body-bg: $light-grey;
+$body-bg: $light-beige;
 $selection-color: #fff;
 $selection-bg: $primary-color;
 

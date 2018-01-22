@@ -45,9 +45,7 @@
     <div class="off-canvas-content-wrap">
       {% block header-wrap %}
 
-      <header class="l-header"
-        style="background-image:url({% if page.content.main_image %}{% imgix_url page.content.main_image %}{% else %}{% imgix_url "/dist/img/logo.jpg" %}{% endif %}?w=1800{% if page.path == "" %}&h=1000{% else %}&h=540{% endif %}&fit=crop&crop=entropy&blend=http://www.fisher-capital.com.sites.glass/dist/img/top-gradient.jpg&ba=top,center&bc=top,center&bm=multiply)"
-        data-srv-name="main_image">
+      <header class="l-header">
         <div class="logo-wrap">
           <a href="/" class="main-logo"><img width="100%" src="/dist/img/logo.svg"></a>
         </div>
@@ -76,8 +74,9 @@
         {% page "main_img" type="img" %}
         <div class="hero" style="background-image:url('{% if page.content.main_img %}{% imgix_url page.content.main_img %}?w=2400&h=820&fit=crop{% else %}/dist/img/h-hero.jpg{% endif %}')" data-srv-name="main_img">
           <div class="overlay text-center">
-            <h1>{% page "title" %}</h1>
-            {% page "call-to-action" type="wysiwyg" %}
+            <div class="overlay-inner">
+              <h1>{% page "title" %}</h1>
+            </div>
           </div>
         </div>
         {% block carousel %}
