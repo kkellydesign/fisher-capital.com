@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main-content-wrap %}
-{% if page.content.intro or editing %}
+{% if page.content.content or editing %}
 <section class="intro l-section-pad">
   <div class="l-container skinny">
     {% page "content" type="wysiwyg" %}

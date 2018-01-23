@@ -169,10 +169,7 @@ $sf-submenu-strip-color: $sf-main-ul-bg;
                     margin: 0;
                     padding: $sf-level2-link-padding;
                     color: $sf-level2-link-color;
-                    font-size: $sf-level2-link-font-size * 0.7;
-                    @include breakpoint($above-skinny){  font-size: $sf-level2-link-font-size * 0.7;  }
-                    @include breakpoint($above-normal){  font-size: $sf-level2-link-font-size * 0.9;   }
-                    @include breakpoint($above-wide){  font-size: $sf-level2-link-font-size * 1.1;   }
+                    font-size: $sf-level2-link-font-size;
                 }
 
                 > ul{

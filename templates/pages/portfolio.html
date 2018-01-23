@@ -2,55 +2,62 @@
 {% block bodyclass %}{{ block.super }}{% endblock %}
 {% block site_title %}{{ page.title }} {{ block.super }}{% endblock %}
 
-{% block content %}
+{% block main-content-wrap %}
+<section class="intro l-section-pad">
+  <div class="l-container skinny">
+    {% page "content" type="wysiwyg" %}
+  </div>
+</section>
 
+{% page "callout_bg_1" type="img" %}
+<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_1 %}{% imgix_url page.content.callout_bg_1 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_1">
 
-<div class="l-container skinny">
-  <ul class="portfolio-list">
-  {% for a in page.content.portfolio %}
-  <li><a data-fancybox="gallery" href="#id_portfolio_item_{{ forloop.counter }}">{{ a.title }}</a></li>
-  {% endfor %}
-  </ul>
-</div>
+  {% if page.content.callout_bg_1 %}
+  <img class="mobile-only" src="{% imgix_url page.content.callout_bg_1 %}?w=780&h=300&fit=crop">
+  {% endif %}
 
-
-
-<div class="l-container skinny">
-
-<ul class="thumbnails">
-{% page_list "portfolio" %}
-  {% list_item "gallery_img" type="img" %}
-  <li>
-    <a data-fancybox="gallery" class="fancybox" rel="fancied" href="#id_portfolio_item_{{ forloop.counter }}" title="{{ list_item.title }}">
-      {% list_item "title" type="text" %}
-      <img src="{% imgix_url list_item.gallery_img %}?w=250&h=250" />
-    </a>
-    <div id="id_portfolio_item_{{ forloop.counter }}" style="display:none;">
-      {% list_item "description" type="wysiwyg" %}
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h3><span class="main-text">{% page "callout_head_1" placeholdser="Heading" %}</span> <small>{% page "callout_small_1" placeholder="subhead" %}</small></h3>
+      </div>
+      <span class="callout-button empty"></span>
+      </div>
     </div>
-  </li>
-{% end_list %}
-</ul>
+  </div>
+</section>
 
-</div>
+<section class="l-section-pad medium-beige-bg">
+  <div class="l-container skinny">
+    <ul class="portfolio-list">
+    {% for a in page.content.portfolio %}
+    <li><a data-fancybox="gallery" href="#id_portfolio_item_{{ forloop.counter }}">{{ a.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
 
-<div style="width: 400px">
-{% page "page_image" type="img" %}
-{% if page.content.page_image or editing %}
-<img
-  class="home-featured"
-  src="{% if page.content.page_image %}{% imgix_url page.content.page_image %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-  data-srv-name="page_image"
-/>
-{% endif %}
-</div>
-
-{% if page.content.test or editing %}
-<img
-  class="home-featured"
-  src="{% if page.content.test %}{% imgix_url page.content.test %}{% elif editing %}https://placem.at/places{% endif %}?w=600"
-  data-srv-name="test"
-/>
-{% endif %}
-
-{% endblock content %}
+<section class="l-section-pad">
+  <div class="l-container skinny">
+    <ul class="portfolio-thumbs">
+    {% page_list "portfolio" %}
+      {% list_item "gallery_img" type="img" %}
+      <li class="l-one-third">
+        <a data-fancybox="gallery" class="fancybox" rel="fancied" href="#id_portfolio_item_{{ forloop.counter }}" title="{{ list_item.title }}">
+          <span class="title">{% list_item "title" type="text" %}</span>
+          <img src="{% imgix_url list_item.gallery_img %}?w=400&h=300" />
+        </a>
+        <div id="id_portfolio_item_{{ forloop.counter }}" style="display:none;">
+          <div class="portfolio-text-inner">
+            <h3 class="text-uppercase">{{ list_item.title }}</h3>
+            {% list_item "description" type="wysiwyg" %}
+            {% list_item "link" type="text" noprint="true" %}
+            {% if list_item.link %}<p class="text-right"><a href="{{ list_item.link|striptags }}">Visit {{ list_item.title|safe }} >>></a></p>{% endif %}
+          </div>
+        </div>
+      </li>
+    {% end_list %}
+    </ul>
+  </div>
+</section>
+{% endblock main-content-wrap %}
