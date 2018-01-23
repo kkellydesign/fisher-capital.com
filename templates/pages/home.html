@@ -40,7 +40,7 @@
       <div class="content-col dark-bg">
         <h5><span class="main-text">{% page "callout_head_1" placeholdser="Heading" %}</span> <small>{% page "callout_small_1" placeholder="subhead" %}</small></h5>
       </div>
-      <a href="#TODO" class="callout-button"><span>More <span class="arrow-wrap">>>></span></span></a>
+      <a href="/doing-business{% if editing %}/admin{% endif %}" class="callout-button"><span>More <span class="arrow-wrap">>>></span></span></a>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
       <div class="content-col dark-bg">
         <h5><span class="main-text">{% page "callout_head_2" placeholder="Heading" %}</span> <small>{% page "callout_small_2" placeholder="subhead" %}</small></h5>
       </div>
-      <a href="#TODO" class="callout-button"><span>More <br>>>> </span></a>
+      <a href="/about{% if editing %}/admin{% endif %}" class="callout-button"><span>More <br>>>> </span></a>
       </div>
     </div>
   </div>
@@ -83,65 +83,22 @@
     <div class="l-three-quarters l-last">
       {% page "featured_project_content" type="wysiwyg" placeholder="Insert Content Here" %}
 
-      <p class="text-right text-uppercase"><a href="/real-estate">View more Projects >>></a></p>
+      <p class="text-right text-uppercase"><a href="/real-estate{% if editing %}/admin{% endif %}">View more Projects >>></a></p>
+    </div>
+  </div>
+</section>
+
+{% page "callout_bg_3" type="img" %}
+<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_3 %}{% imgix_url page.content.callout_bg_3 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_3">
+{% if page.content.callout_bg_3 %}<img class="mobile-only" src="{% imgix_url page.content.callout_bg_3 %}?w=780&h=300&fit=crop">{% endif %}
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h5><span class="main-text">{% page "callout_head_3" placeholder="Heading" %}</span> <small>{% page "callout_small_3" placeholder="subhead" %}</small></h5>
+      </div>
+      <a href="/approach{% if editing %}/admin{% endif %}" class="callout-button"><span>More <br>>>> </span></a>
+      </div>
     </div>
   </div>
 </section>
 {% endblock main-content-wrap %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% comment %}
-{% children as "posts" parent="portfolio" limit=3 %}
-{% for post in posts %}
-
-
-
-<div class="post-img-wrap">
-
-  {% if post.content.before and post.content.main %}
-  <div class="post-img-half">
-    <a href="{{ post.get_absolute_url }}">
-      <img src="{% imgix_url post.content.before %}?w=500&h=300&fit=crop" />
-    </a>
-    <h5>Before</h5>
-  </div>
-  <div class="post-img-half after">
-    <a href="{{ post.get_absolute_url }}">
-      <img src="{% imgix_url post.content.main %}?w=500&h=300&fit=crop" />
-    </a>
-    <h5>After</h5>
-  </div>
-  {% elif post.content.main_image %}
-  <a href="{{ post.get_absolute_url }}">
-    <img src="{% imgix_url post.content.main_image %}?w=1000&h=300&fit=crop" />
-  </a>
-  {% endif %}
-
-</div>
-<div class="post-preview-text clearfix">
-  <div class="l-one-third">
-    <h4><a href="{{ post.get_absolute_url }}" class="post-link no-underline">{{ post.content.title }}</a></h4>
-  </div>
-  <div class="l-two-thirds l-last">
-    {{ post.content.intro|safe|truncatewords_html:60 }}
-    <p class="more"><a href="{{ post.get_absolute_url }}">Read more...</a></p>
-  </div>
-</div>
-
-
-{% empty %}
-<p>No Messages have been posted yet.</p>
-{% endfor %}
-
-{% endcomment %}
