@@ -3,9 +3,6 @@
 
 @import "base/variables",
     "../../bower_components/fancybox/dist/jquery.fancybox"; // http://fancyapps.com/fancybox/3/
-    //"slick.scss", // https://github.com/kenwheeler/slick/, http://kenwheeler.github.io/slick/
-    //"slick-theme.scss";
-    //"fullcalendar";
 
 @import "base/normalize",
 		//"base/dev-helpers",
@@ -24,21 +21,15 @@
 		"layout/home-sections",
 		"layout/footer";
 
-@import "module/wells",
+@import
 		"module/superfish", // drop-down nav
 		"module/mobile-nav",
 		"module/thumbnails",
-		"module/search",
-		"module/pagination",
 		"module/home-sections",
     "module/portfolio",
-		//"module/calendar",
     "module/home-testimonial",
-    "module/slick",
 		"module/icons",
     "module/team",
     "module/photo-callout-ribbon";
-
-		//"module/totop"; // jump-to-top button
 
 @import "state/states";

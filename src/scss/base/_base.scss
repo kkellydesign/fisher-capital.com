@@ -35,35 +35,3 @@ blockquote {
 		}
 	}
 }
-
-
-.l-main table {
-	width: 100%;
-  font-size: rem-calc(1.5);
-  th{
-    text-align: left;
-    color: #fff;
-    background: $primary-color;
-  }
-  th, td {
-    padding: 6px;
-    border-bottom: 1px solid #fff;
-  }
-	&.striped tr:nth-child(odd) td{
-		background-color: $grey;
-	}
-  &.transparent {
-    td:first-child {
-      vertical-align: middle;
-      img{
-        margin: 0 auto;
-        display: block;
-        max-width: 200px;
-      }
-    }
-  }
-  p{
-    font-size: rem-calc(1.5);
-  }
-}
-.module table td{width: auto;}

@@ -27,24 +27,10 @@ $button-subdued-hover-background: mix($shade, $button-subdued-bg-color, 15%);
   display:inline-block;
   vertical-align: middle;
   text-decoration: none;
-  &:hover{
+
+  &:hover {
     background-color: $button-hover-background;
     color: $button-color;
     text-decoration: none;
-  }
-  &.subdued{
-    background-color: $button-subdued-bg-color;
-    color: $button-subdued-color;
-    border: $button-subdued-border;
-    &:hover{
-      background-color: $button-subdued-hover-background;
-      border: $button-subdued-border-hover;
-      color: $button-subdued-color;
-    }
-  }
-  &.block,
-  &.btn-block{
-    display:block;
-    text-align: center;
   }
 }

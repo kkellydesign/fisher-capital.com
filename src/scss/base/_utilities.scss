@@ -1,9 +1,11 @@
 html, body {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
 img{max-width: 100%;}
 
 .float-right{
@@ -18,18 +20,6 @@ img{max-width: 100%;}
   position:relative;
 }
 
-.no-bullets {
-  list-style: none;
-  margin: 1em 0;
-  padding: 0;
-
-  li {
-  margin: 0;
-  padding: 0;
-  }
-}
-
-
 .text-right {
   text-align: right;
 }
@@ -43,14 +33,6 @@ img{max-width: 100%;}
 
 .no-margin{
   margin: 0;
-}
-.v-pad{
-  padding: 1em 0;
-  @include breakpoint($above-stacked){ padding: 3em 0; }
-}
-.pad-right{
-  padding-right: 0;
-  @include breakpoint($above-stacked){ padding-right: 30px;}
 }
 
 .light-bg {
@@ -82,17 +64,9 @@ img{max-width: 100%;}
   @include breakpoint($above-stacked){ display: none; }
 }
 
-.hide-mobile{
+.hide-mobile {
   display:none;
   @include breakpoint($above-stacked){ display: block; }
-}
-
-.vimeo-player{
-  width:100%;
-  @include breakpoint($above-skinny){
-    float:right;
-    margin:0 -50% 10px 20px;
-  }
 }
 
 //breakpoint settings
@@ -117,25 +91,6 @@ html {
 @mixin font-size($sizeValue: 1.6) {
   font-size: ($sizeValue * 10) + px;
   font-size: $sizeValue + rem;
-}
-
-//trying to remove compass dependancy
-@mixin transition($transition...) {
-    -moz-transition:    $transition;
-    -o-transition:      $transition;
-    -webkit-transition: $transition;
-    transition:         $transition;
-}
-
-@mixin linear-gradient($fromColor, $toColor) {
-  //background-color: $toColor; /* Fallback Color */
-  background-image: -webkit-gradient(linear, left top, right top, from($fromColor), to($toColor)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(left, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image:    -moz-linear-gradient(left, $fromColor, $toColor); /* FF3.6 */
-  background-image:     -ms-linear-gradient(left, $fromColor, $toColor); /* IE10 */
-  background-image:      -o-linear-gradient(left, $fromColor, $toColor); /* Opera 11.10+ */
-  background-image:         linear-gradient(left, $fromColor, $toColor);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#{$fromColor}', EndColorStr='#ffffff');
 }
 
 .video-wrap{

@@ -1,5 +1,5 @@
 //use rems with fallback
-body{
+body {
 	font-family: $base-font-family;
 	@include font-size( $base-font-size );
 	font-weight: $paragraph-font-weight;
@@ -16,9 +16,11 @@ p, li, div, table{
 		@include font-size( $small-paragraph-font-size );
 	}
 }
+
 p{
 	margin: 0 0 1em 0;
 }
+
 .intro {
   padding: 0 0 20px 0;
 
@@ -29,35 +31,6 @@ p{
 
 b, strong{
 	font-weight: 600;
-}
-.bordered-head{
-	position: relative;
-	text-align: center;
-	font-style: italic;
-	.text-wrap{
-		background: #fff;
-		padding: 0 10px;
-		position: relative;
-		z-index: 12;
-	}
-	&:after{
-		content: "";
-		position: absolute;
-		top: 50%;
-		border-bottom: 2px solid mix($body-bg, $primary-color, 50%);
-		left: 0;
-		right: 0;
-		z-index: 10;
-	}
-}
-
-.hours {
-	margin: 0.5em 0;
-	padding-bottom: 0.25em;
-	text-align: center;
-	border-bottom: 1px solid mix($tint, $primary-color, 80%);
-
-
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -129,12 +102,6 @@ h6 {
     @include type-sizes(1);
 }
 
-.big-subhead {
-  @include breakpoint($above-normal){
-    @include font-size( $paragraph-font-size * 2.4);
-    margin: 1em 0;
-  }
-}
 .knockout {
 	p, li, h1, h2, h3, h4, h5, h6, a, a:hover, a:focus, a:visited {
 		color: #fff;
@@ -162,10 +129,4 @@ a {
         color: mix($shade, $link-color, 15%);
         text-decoration: none;
     }
-}
-
-.map {
-  height:400px;
-  width:100%;
-  margin-top: 6px solid $primary-color;
 }

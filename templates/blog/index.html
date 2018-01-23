@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% children as posts order_by="-published" %}
+{% autopaginate posts 10 %}
+{% for post in posts %}
+<h3><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}" class="post-link no-underline">{{ post.content.title }}</a></h3>
+<p class="teaser">{{ post.content.content|safe|truncatewords_html:100 }}</p>
+<p class="more"><a href="{{ post.get_absolute_url }}{% if editing %}/admin{% endif %}">Read more&hellip;</a></p>
+{% empty %}
+<p>No Messages have been posted yet.</p>
+{% endfor %}
+{% paginate %}
+{% endblock content %}
