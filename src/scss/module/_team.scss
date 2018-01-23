@@ -1,0 +1,57 @@
+.team-list {
+  background: #fff;
+}
+
+.team-head {
+  background: $light-beige;
+
+  h5 {
+    text-transform: uppercase;
+    color: #fff;
+    margin-right: -10px;
+
+    .brown-bg {
+      display: block;
+      background: $brown;
+      padding: 10px;
+      margin-right: 10px;
+      margin-left: -10px;
+    }
+
+    border-right: 40px solid $green;
+
+  }
+}
+
+
+.team-bio {
+	padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+@include breakpoint($above-stacked){
+
+  .team-head {
+
+    h5 {
+      margin-right: 0;
+
+      .brown-bg {
+        margin-left: 0;
+      }
+    }
+  }
+  .team-bio {
+    padding-bottom: 3em;
+  }
+}
+
+// just for editing tool cleanup
+.team-wrap {
+  .srv-icon-clear {
+    max-width: 985px;
+    margin: 0 auto;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}

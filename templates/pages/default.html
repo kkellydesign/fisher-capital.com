@@ -1,38 +1,52 @@
 {% extends "base.html" %}
 
+{% block main-content-wrap %}
+{% if page.content.intro or editing %}
+<section class="intro l-section-pad">
+  <div class="l-container skinny">
+    {% page "content" type="wysiwyg" %}
+  </div>
+</section>
+{% endif %}
 
-{% block bodyclass %}{{ block.super }}{% endblock %}
+{% page "callout_bg_1" type="img" %}
+<section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_1 %}{% imgix_url page.content.callout_bg_1 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_1">
 
-{% block site_title %}{{ page.title }} {{ block.super }}{% endblock %}
+  {% if page.content.callout_bg_1 %}
+  <img class="mobile-only" src="{% imgix_url page.content.callout_bg_1 %}?w=780&h=300&fit=crop">
+  {% endif %}
 
-
-{% block carousel %}
-{% endblock carousel %}
-
-
-{% block content %}
-      {% page "content" type="wysiwyg" %}
-
-      {% if page.path == 'team' %}
-
-      {% if editing %}
-
-      <div style="background: #eee;border:1px solid #ddd;padding:10px;margin:1em 0;max-width:600px">
-        <p><em>Editor's note: to change the list below, scroll to the bottom and select the 'team' button. This takes
-          the guesswork out of formatting the images correctly. -KK</em></p>
+  <div class="content-wrap">
+    <div class="l-container skinny">
+      <div class="content-col dark-bg">
+        <h3><span class="main-text">{% page "callout_head_1" placeholdser="Heading" %}</span> <small>{% page "callout_small_1" placeholder="subhead" %}</small></h3>
       </div>
+      <span class="callout-button empty"></span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="l-section-pad team-list">
+  {% if editing %}
+  <div class="l-container skinny">
+  <p><em>Editor's note: to change the list below, scroll to the bottom and
+    select the 'team' button. This takes the guesswork out of formatting the
+    headlines correctly.</em></p>
+  </div>
+  {% endif %}
 
-      {% endif %}
+  <div class="team-wrap">
+  {% page_list "team" %}
+  <div class="team-head">
+    <div class="l-container skinny">
+      <h5><span class="brown-bg">{% list_item "name" type="text" %}</span></h5>
+    </div>
+  </div>
+  <div class="l-container skinny team-bio">
+    {% list_item "bio" type="wysiwyg" %}
+  </div>
+  {% end_list %}
+  </div>
+</section>
 
-      {% page_list "team" %}
-      {% list_item "gallery_img" type="img" %}
-      <h2>{% list_item "name" type="text" %}, <em>{% list_item "title" type="text" %}</em></h2>
-      <img alt="{{ list_item.name }}" src="{% imgix_url list_item.gallery_img %}?w=150&h=200&fit=crop" style="margin: 0px 0px 10px 10px; float: right;">
-      {% list_item "bio" type="wysiwyg" %}
-      <hr>
-      {% end_list %}
-
-      {% endif %}
-
-
-{% endblock content %}
+{% endblock main-content-wrap %}

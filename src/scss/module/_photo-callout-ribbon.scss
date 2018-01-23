@@ -8,6 +8,7 @@
     background: $brown;
     margin: 0 10px 0 -10px;
     padding: 10px;
+    flex: 1 1 auto;
   }
 
   .callout-button {
@@ -20,11 +21,13 @@
     text-transform: uppercase;
     padding: 10px;
     margin: 0 -10px 0 -1px;
-
     width: 75px;
-
     line-height: 1;
     text-align: left;
+
+    &.empty {
+      width: 40px;
+    }
 
     .arrow-wrap {
       display: block;
@@ -36,7 +39,7 @@
     }
   }
 
-  h5, small {
+  h1, h2, h3, h4, h5, h6, small  {
     color: #fff;
   }
 
@@ -64,7 +67,7 @@
       display: flex;
     }
 
-    h5 {
+    h2, h3, h4, h5, h6 {
       display: flex;
       align-items: center;
       justify-content: center;

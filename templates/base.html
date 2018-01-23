@@ -71,17 +71,14 @@
           </div>
         </nav>
 
-        {% page "main_img" type="img" %}
         <div class="hero" style="background-image:url('{% if page.content.main_img %}{% imgix_url page.content.main_img %}?w=2400&h=820&fit=crop{% else %}/dist/img/h-hero.jpg{% endif %}')" data-srv-name="main_img">
+          {% page "main_img" type="img" %}
           <div class="overlay text-center">
             <div class="overlay-inner">
               <h1>{% page "title" %}</h1>
             </div>
           </div>
         </div>
-        {% block carousel %}
-        {% endblock carousel %}
-
 
       </header>
       {% endblock header-wrap %}
@@ -93,7 +90,7 @@
 
 {% block main-content-wrap %}
 {% if page.content.intro or editing %}
-<section class="light-bg intro section-pad">
+<section class="intro l-section-pad">
   <div class="l-container skinny">
     {% page "intro" type="wysiwyg" %}
   </div>
@@ -102,25 +99,26 @@
 <section class="l-section-pad main-subpage-content-area">
   <div class="l-container skinny">
       {% block content %}
-      {% page "Content" type="wysiwyg" placeholder="Insert Content here" %}
+      {% page "content" type="wysiwyg" placeholder="Insert Content here" %}
       {% endblock content %}
   </div>
 </section>
 {% endblock main-content-wrap %}
 
 
-<footer class="l-footer knockout section-pad">
+
+<footer class="l-footer l-section-pad knockout">
   <div class="l-container skinny">
     <div class="l-one-third border-right">
-      <h6 class="text-uppercase">{% page "footer-col-1-head" %}</h6>
+      <h6 class="text-uppercase">Visit Us >>></h6>
       {% chunk "footer_col_1" %}
     </div>
     <div class="l-one-third border-right">
-      <h6 class="text-uppercase">{% page "footer-col-2-head" %}</h6>
+      <h6 class="text-uppercase">Contact Us >>></h6>
       {% chunk "footer_col_2" %}
     </div>
     <div class="l-one-third l-last">
-      <h6 class="text-uppercase">{% page "footer-col-3-head" %}</h6>
+      <h6 class="text-uppercase">Explore >>></h6>
       {% menu "Navigation" %}
             <ul class="footer-nav">
               {% for item in tree %}
