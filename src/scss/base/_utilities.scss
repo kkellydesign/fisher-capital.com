@@ -17,6 +17,7 @@ img{max-width: 100%;}
 .pos-rel{
   position:relative;
 }
+
 .no-bullets {
   list-style: none;
   margin: 1em 0;
@@ -27,9 +28,19 @@ img{max-width: 100%;}
   padding: 0;
   }
 }
+
+
+.text-right {
+  text-align: right;
+}
+
 .text-center{
   text-align:center;
 }
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 .no-margin{
   margin: 0;
 }
@@ -53,22 +64,33 @@ img{max-width: 100%;}
   }
 }
 
+.green {
+  color: $green;
+}
+
+.section-pad {
+  padding: 30px 0;
+
+  @include breakpoint($above-stacked){
+    padding: 80px 0;
+  }
+}
+
 .fancybox, .fancybox:hover {
   border-bottom: none;
 }
-//this totally shouldn't be necessary
-.old-ie{
-  .l-header, .l-footer, .l-sidebar, .l-main-nav-block, .l-main-content-wrap{display:block;}
-}
+
 // breakpoint classes
-.mobile-only{
+.mobile-only {
   display:block;
   @include breakpoint($above-stacked){ display: none; }
 }
+
 .hide-mobile{
   display:none;
   @include breakpoint($above-stacked){ display: block; }
 }
+
 .vimeo-player{
   width:100%;
   @include breakpoint($above-skinny){
@@ -76,6 +98,7 @@ img{max-width: 100%;}
     margin:0 -50% 10px 20px;
   }
 }
+
 //breakpoint settings
 @include breakpoint-set('no query fallbacks', true);
 
@@ -86,16 +109,9 @@ img{max-width: 100%;}
     clear: both;
   }
 }
+
 .clearfix{
 	@include clearfix();
-}
-hr{
-  border-width: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.8);
-  border-top: 1px solid rgba(0,0,0,0.15);
-  margin: 1em 0;
-  clear:both;
-  @include clearfix();
 }
 
 //use rems with fallback, then the font-size mixin for fallbacks
@@ -126,24 +142,6 @@ html {
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#{$fromColor}', EndColorStr='#ffffff');
 }
 
-.gradient {
-    background: $primary-color; /* fallback for old browsers */
-    background: linear-gradient(to left, $red2 , $red); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.gradient-blue {
-    background: $primary-color; /* fallback for old browsers */
-    background: linear-gradient(to left, $blue , mix($shade, $blue, 30%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.gradient-reverse {
-    background: $primary-color; /* fallback for old browsers */
-    background: linear-gradient(to right, $red2 , $red); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.sidebar-img{
-  margin-bottom: 2em;
-}
 .video-wrap{
   position: relative;
   width:100%;
@@ -170,13 +168,6 @@ table{
 //facebook junk
 .fb-page, .fb-page iframe[style], .fb-page span {
     width: 100% !important;
-}
-
-.white-bg {
-  background: #fff;
-}
-.blue-bg {
-  background: mix($blue, $tint, 20%);
 }
 
 /// Triangle helper mixin
@@ -217,5 +208,9 @@ figure {
 
 hr {
   border: 0 none;
-  border-top: 1px solid mix($shade, $grey, 20%);
+  border-bottom: 1px solid rgba(255,255,255,0.8);
+  border-top: 1px solid rgba(0,0,0,0.15);
+  margin: 1em 0;
+  clear:both;
+  @include clearfix();
 }

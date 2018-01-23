@@ -27,8 +27,9 @@ $red2: mix($shade, $red, 20%);
 $blue: #263c87;
 $beige: #797363;
 $light-beige: #edebe8;
-$brown: #513527;
+$brown: #615b4d;
 $green: #a7b241;
+$light-green: #c3c82f;
 $orange: #ad573c;
 
 
@@ -65,13 +66,13 @@ $well-padding: 10px;
 //type and important global styles
 $base-font-size: 1.6;
 $base-line-height: 1.4;
-$base-font-family: 'Raleway', sans-serif;
+$base-font-family: 'Open Sans', sans-serif;
 $paragraph-font-weight: 400;
 $paragraph-font-size: 1.8; //this uses the rem-calc mixin
 $small-paragraph-font-size: 1.4;
 
 $alt-font-family: $base-font-family;
-$header-font-family: $base-font-family;
+$header-font-family: 'Raleway', sans-serif;
 $header-font-weight: 400;
 $header-line-height: 1.2;
 $header-color: $primary-color;

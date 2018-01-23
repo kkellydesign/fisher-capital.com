@@ -20,7 +20,7 @@
     <meta property="og:site_name" content="{{ site.name }}"/>
     <meta property="og:type" content="website"/>
     {% endblock meta %}
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="/dist/css/styles.css?cacheBust121317" type="text/css" />
     <script
       src="http://code.jquery.com/jquery-1.12.4.min.js"
@@ -37,7 +37,7 @@
           </span>
         </button>
 
-      <a href="/" class="mobile-logo" style="color: #fff;text-align:center;"><!--<img width="100%" src="/dist/img/logo.jpg">-->Restore West logo</a>
+      <a href="/" class="mobile-logo"><img width="100%" src="/dist/img/logo.svg"></a>
     </div>
     <nav class="mobile-nav">
       {% block mobile-nav %}{% endblock %}
@@ -93,7 +93,7 @@
 
 {% block main-content-wrap %}
 {% if page.content.intro or editing %}
-<section class="light-bg intro-text">
+<section class="light-bg intro section-pad">
   <div class="l-container skinny">
     {% page "intro" type="wysiwyg" %}
   </div>
@@ -109,15 +109,18 @@
 {% endblock main-content-wrap %}
 
 
-<footer class="l-footer knockout">
+<footer class="l-footer knockout section-pad">
   <div class="l-container skinny">
-    <div class="l-one-third">
+    <div class="l-one-third border-right">
+      <h6 class="text-uppercase">{% page "footer-col-1-head" %}</h6>
       {% chunk "footer_col_1" %}
     </div>
-    <div class="l-one-third">
+    <div class="l-one-third border-right">
+      <h6 class="text-uppercase">{% page "footer-col-2-head" %}</h6>
       {% chunk "footer_col_2" %}
     </div>
     <div class="l-one-third l-last">
+      <h6 class="text-uppercase">{% page "footer-col-3-head" %}</h6>
       {% menu "Navigation" %}
             <ul class="footer-nav">
               {% for item in tree %}
@@ -135,9 +138,9 @@
             </ul>
     </div>
   </div>
-<div class="l-container skinny">
+<div class="l-container skinny text-center">
  <p class="sm-foot-text">
-   &copy;{% now "Y" %}, {{ site.name }}. All rights reserved. Site by <a href="http://www.kellycreativetech.com">Kelly Creative Tech</a>.
+   &copy;{% now "Y" %}, {{ site.name }}. All rights reserved.
    {% if user.is_authenticated %}
    {% if user.is_staff %}
    <a href="/admin/">Site Admin</a>
@@ -163,7 +166,7 @@
       ga('send', 'pageview');
 
     </script>
-    <script src="/dist/js/all.js?cacheBust121317"></script>
+    <script src="/dist/js/all.js"></script>
     {% endblock %}
     <!--
                            KK  Lll.  LLLL

@@ -139,11 +139,7 @@ $sf-submenu-strip-color: $sf-main-ul-bg;
             border-radius: $sf-top-level-link-radius;
             color: $sf-top-level-link-color;
             margin: $sf-top-level-link-margin-top-bottom $sf-top-level-link-margin-left-right;
-            font-size: $sf-top-level-link-font-size * 0.7;
-            @include breakpoint($above-skinny){  font-size: $sf-top-level-link-font-size * 0.8;  }
-            @include breakpoint($above-normal){  font-size: $sf-top-level-link-font-size * .9;   }
-            @include breakpoint($above-normal-plus){  font-size: $sf-top-level-link-font-size * 1;   }
-            @include breakpoint($above-wide){  font-size: $sf-top-level-link-font-size * 1.1;   }
+            font-size: $sf-top-level-link-font-size * 1;
         }
         // &:first-child > a{margin-left:0;padding-left:0;}
         // &:last-child > a{margin-right:0;padding-right: 0;}

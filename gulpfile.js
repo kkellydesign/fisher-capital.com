@@ -29,14 +29,11 @@ var sassPaths = [
 
 // all of these will be concatenated.
 var scriptPaths = [
-  "node_modules/moment/min/moment.min.js",
-  "node_modules/fullcalendar/dist/fullcalendar.min.js",
-  "bower_components/slick-carousel/slick/slick.js",
   "bower_components/fancybox/dist/jquery.fancybox.js",
   "bower_components/superfish/dist/js/hoverIntent.js",
   "bower_components/superfish/dist/js/superfish.js",
-  "src/scripts/KCT-mobilenav.js",
-  "src/scripts/scripts.js"
+  "src/js/KCT-mobilenav.js",
+  "src/js/scripts.js"
 ]
 
 // image paths
@@ -69,7 +66,7 @@ gulp.task('scripts', function(cb) {
           gulp.src(scriptPaths),
           concat('all.js'),
           sourcemaps.write(),
-          uglify(),
+
           gulp.dest('dist/js/')
       ],
       cb

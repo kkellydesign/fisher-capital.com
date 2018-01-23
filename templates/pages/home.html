@@ -30,12 +30,17 @@
 </section>
 {% page "callout_bg_1" type="img" %}
 <section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_1 %}{% imgix_url page.content.callout_bg_1 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_1">
+
+  {% if page.content.callout_bg_1 %}
+  <img class="mobile-only" src="{% imgix_url page.content.callout_bg_1 %}?w=780&h=300&fit=crop">
+  {% endif %}
+
   <div class="content-wrap">
     <div class="l-container skinny">
       <div class="content-col dark-bg">
-        <h5><span class="main-text">{% page "callout_head_1" placeholder="Heading" %}</span> <small>{% page "callout_small_1" placeholder="subhead" %}</small></h5>
+        <h5><span class="main-text">{% page "callout_head_1" placeholdser="Heading" %}</span> <small>{% page "callout_small_1" placeholder="subhead" %}</small></h5>
       </div>
-      <a href="#TODO" class="callout-button"><span>More <br>>>> </span></a>
+      <a href="#TODO" class="callout-button"><span>More <span class="arrow-wrap">>>></span></span></a>
       </div>
     </div>
   </div>
@@ -51,7 +56,7 @@
 
 {% page "callout_bg_2" type="img" %}
 <section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_2 %}{% imgix_url page.content.callout_bg_2 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_2">
-
+{% if page.content.callout_bg_2 %}<img class="mobile-only" src="{% imgix_url page.content.callout_bg_2 %}?w=780&h=300&fit=crop">{% endif %}
   <div class="content-wrap">
     <div class="l-container skinny">
       <div class="content-col dark-bg">
@@ -63,7 +68,7 @@
   </div>
 </section>
 
-<section class="featured-project">
+<section class="featured-project section-pad">
   <div class="l-container skinny">
     <div class="l-one-quarter">
       {% page "featured_project" type="img" %}
@@ -78,12 +83,10 @@
     <div class="l-three-quarters l-last">
       {% page "featured_project_content" type="wysiwyg" placeholder="Insert Content Here" %}
 
-      <p class="text-right"><a href="/real-estate">View more Featured Projects >>></a></p>
+      <p class="text-right text-uppercase"><a href="/real-estate">View more Projects >>></a></p>
     </div>
   </div>
 </section>
-
-
 {% endblock main-content-wrap %}
 
 

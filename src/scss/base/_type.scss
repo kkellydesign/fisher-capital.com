@@ -81,6 +81,11 @@ h1, h2, h3, h4, h5, h6{
 		}
 	}
 }
+
+h6 {
+  margin-bottom: 1em;
+}
+
 * + h1, * + h2, * + h3, * + h4, * + h5, * + h6{
 	margin-top: 1em;
 }
@@ -112,7 +117,7 @@ h1, h2, h3, h4, h5, h6{
     h3, .h3{ @include font-size( $paragraph-font-size * 1.7 * $multiplier); }
     h4, .h4{ @include font-size( $paragraph-font-size * 1.6 * $multiplier); }
     h5, .h5{ @include font-size( $paragraph-font-size * 1.5 * $multiplier); }
-    h6, .h6{ @include font-size( $paragraph-font-size * 1.4 * $multiplier); }
+    h6, .h6{ @include font-size( $paragraph-font-size * 1.2 * $multiplier); }
 }
 
 @include type-sizes(0.9);
@@ -139,6 +144,10 @@ h1, h2, h3, h4, h5, h6{
 	}
   a:hover {
     text-decoration: none;
+  }
+
+  .green {
+    color: $light-green;
   }
 }
 

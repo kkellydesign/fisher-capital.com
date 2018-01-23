@@ -1,4 +1,4 @@
-$mobile-nav-bg: $primary-color;
+$mobile-nav-bg: linear-gradient(to top, $beige , mix($shade, $beige, 30%));;
 $mobile-nav-padding: 0 20px;
 $mobile-nav-font-size: 22px;
 $mobile-nav-text-color: #fff;
