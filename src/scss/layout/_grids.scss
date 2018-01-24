@@ -31,14 +31,33 @@ $susy: (
 .l-one-third{
   @include breakpoint($above-stacked){
     @include span(4);
+
     &:nth-child(3n+3){
       @include span(4 last);
     }
+
     &.l-last{
       @include span(4 last);
     }
-    &:nth-child(4n+4){
-      clear:both;
+  }
+}
+
+.l-one-quarter {
+  @include breakpoint($above-stacked){
+    @include span(3);
+
+    &.l-last{
+      @include span(4 last);
+    }
+  }
+}
+
+.l-three-quarters {
+  @include breakpoint($above-stacked){
+    @include span(9);
+
+    &.l-last{
+      @include span(9 last);
     }
   }
 }

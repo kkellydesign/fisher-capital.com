@@ -9,6 +9,7 @@
 </section>
 {% endif %}
 
+{% if page.content.callout_bg_1 or editing %}
 {% page "callout_bg_1" type="img" %}
 <section class="photo-callout-ribbon" style="background-image: url({% if page.content.callout_bg_1 %}{% imgix_url page.content.callout_bg_1 %}{% else %}https://placem.at/places{% endif %}?w=1800&h=300&fit=crop)" data-srv-name="callout_bg_1">
 
@@ -26,6 +27,9 @@
     </div>
   </div>
 </section>
+{% endif %}
+
+{% if page.content.team or editing %}
 <section class="l-section-pad team-list">
   {% if editing %}
   <div class="l-container skinny">
@@ -48,5 +52,6 @@
   {% end_list %}
   </div>
 </section>
+{% endif %}
 
 {% endblock main-content-wrap %}

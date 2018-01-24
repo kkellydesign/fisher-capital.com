@@ -45,7 +45,7 @@
       <li class="l-one-third">
         <a data-fancybox="gallery" class="fancybox" rel="fancied" href="#id_portfolio_item_{{ forloop.counter }}" title="{{ list_item.title }}">
           <span class="title">{% list_item "title" type="text" %}</span>
-          <img src="{% imgix_url list_item.gallery_img %}?w=400&h=300" />
+          <img src="{% imgix_url list_item.gallery_img %}?w=400&h=300&fit=crop" />
         </a>
         <div id="id_portfolio_item_{{ forloop.counter }}" style="display:none;">
           <div class="portfolio-text-inner">

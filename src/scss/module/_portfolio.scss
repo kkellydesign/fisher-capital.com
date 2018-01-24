@@ -12,7 +12,7 @@
 
 
   a {
-    color: #fff;
+    color: $text-color;
     text-transform: uppercase;
     text-decoration: none;
     &:hover {
@@ -29,6 +29,7 @@
   li {
     position: relative;
     overflow: hidden;
+    margin-bottom: 1em;
 
     &:after {
       content: "";
@@ -65,7 +66,7 @@
     left: 0;
     padding: 10px;
     border-left: 20px solid rgba($green, 0.94);
-    background: rgba($beige, 0.9);
+    background: rgba($beige, 0.8);
     color: #fff;
     text-transform: uppercase;
     font-family: $header-font-family;
@@ -96,7 +97,7 @@
 }
 
 .fancybox-bg {
-  background: transparent;
+  background: rgba($light-beige, 0.7);
 }
 
 .fancybox-close-small {
@@ -122,9 +123,25 @@
 }
 
 .fancybox-navigation .fancybox-button--arrow_left {
-  left: 40px;
+  left: 30px;
 }
 
 .fancybox-navigation .fancybox-button--arrow_right {
-  right: 12px;
+  right: 30px;
+}
+
+.fancybox-navigation .fancybox-button--arrow_left,
+.fancybox-navigation .fancybox-button--arrow_right {
+
+  &:before {
+    border: none;
+  }
+}
+
+.fancybox-button svg path {
+  fill: none;
+  stroke: $light-green;
+}
+.fancybox-button:hover svg path {
+  stroke: #fff;
 }
