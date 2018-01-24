@@ -6,19 +6,8 @@
     <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta %}
-    <title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
-    <meta name="author" content="{{ site.name }}">
-    <meta name="msapplication-TileColor" content="#3b854e"/>
-    <meta name="description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}">
-    <link href="/dist/icons/favicon.ico" rel=icon type="image/x-icon">
-    <link href="/dist/icons/favicon.png" rel=icon type="image/png">
-    <link rel="apple-touch-icon-precomposed" href="/dist/icons/apple-touch-icon.png">
-    <!-- Facebook, LinkedIn, and Google Plus meta tags -->
-    <meta property="og:title" content="{% if page.content.meta_title %}{{ page.content.meta_title|striptags }}{% elif page.content.title %}{{ page.content.title|striptags }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}"/>
-    <meta property="og:description" content="{% if page.content.meta_description %}{{ page.content.meta_description|striptags|truncatechars:200 }}{% elif page.content.intro_text %}{{ page.content.intro_text|striptags|truncatechars:200 }}{% else %}{{ page.content.content|striptags|truncatechars:200 }}{% endif %}"/>
-    <meta property="og:url" content="{{ page.get_absolute_url }}"/>
-    <meta property="og:site_name" content="{{ site.name }}"/>
-    <meta property="og:type" content="website"/>
+    <title>{% if page.content.meta_title %}{{ page.content.meta_title|striptags|safe }}{% elif page.content.title %}{{ page.content.title|striptags|safe }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    {% include "_meta-head.html" %}
     {% endblock meta %}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="/dist/css/styles.css?cacheBust121317" type="text/css" />
@@ -105,6 +94,10 @@
 </section>
 {% endblock main-content-wrap %}
 
+
+{% if editing %}
+{% include "_meta-tools.html" %}
+{% endif %}
 
 
 <footer class="l-footer l-section-pad knockout">

@@ -41,3 +41,9 @@ window.onresize = function(){
   clearTimeout(doit);
   doit = setTimeout(resizedw, 250);
 };
+
+// for admin meta tools
+$('.toggle-title').on('click', function(){
+  $(this).next('.toggle-this').toggleClass('open');
+  $(this).toggleClass('open');
+});
